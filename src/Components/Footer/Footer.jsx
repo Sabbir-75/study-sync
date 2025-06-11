@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="px-4 divide-y bg-base-200 text-base-content">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-                <div className="lg:w-1/3">
+                <div className="lg:w-1/3 flex flex-col items-center">
                     <img className='max-w-[300px]' src={logo} alt={logo} />
                     <div className="join">
                         <input
@@ -17,7 +17,7 @@ const Footer = () => {
                         <button className="btn bg-neutral text-neutral-content join-item">Subscribe</button>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+                <div className="grid grid-cols-1 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
                         <h3 className="tracking-wide uppercase text-base-content">Contact Us</h3>
                         <ul className="space-y-2">
@@ -94,7 +94,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center dark:text-gray-600">© 1968 Company Co. All rights reserved.</div>
+            <div className="py-6 text-sm text-center text-base-300">© {new Date().getFullYear()} Room Hunt. All rights reserved by LS Coder.</div>
         </footer>
     );
 };
