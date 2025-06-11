@@ -1,0 +1,9 @@
+
+.myclassName a.active{
+    color: #DC143C;
+}
+
+.mynewclassName a.active{
+    color: white;
+    background-color: #DC143C;
+}
