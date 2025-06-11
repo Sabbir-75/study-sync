@@ -122,12 +122,15 @@
 import React from 'react';
 import "./Navbar.css"
 import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
 const Navbar = () => {
     const nav = <>
         <li className='text-white'><NavLink>Home</NavLink></li>
     </>
+
+     const navigate = useNavigate()
+     const {pathname} = useLocation()
     return (
         <div className="navbar bg-base-200 shadow-sm">
             <div className="navbar-start">
@@ -151,17 +154,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button href="#_" class="relative inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group">
-                    <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
-                    <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
-                    <span class="relative w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2"><BiLogIn size={20} /> Login</span>
-                    <span class="absolute inset-0 border-2 border-neutral rounded-lg"></span>
+                <button onClick={() => navigate("/login")} className={`relative ${(pathname === "/login") && "bg-neutral"} inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group`}>
+                    <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
+                    <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
+                    <span className={`relative ${(pathname === "/login") && "text-neutral-content"} w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2`}><BiLogIn size={20} /> Login</span>
+                    <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
                 </button>
-                <button href="#_" class="relative inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group">
-                    <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
-                    <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
-                    <span class="relative w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2"><BiLogOut size={20} /> Logout</span>
-                    <span class="absolute inset-0 border-2 border-neutral rounded-lg"></span>
+                <button className="relative inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group">
+                    <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
+                    <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
+                    <span className="relative w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2"><BiLogOut size={20} /> Logout</span>
+                    <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
                 </button>
             </div>
         </div>
