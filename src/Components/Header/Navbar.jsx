@@ -126,7 +126,8 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
 const Navbar = () => {
     const nav = <>
-        <li className='text-white'><NavLink>Home</NavLink></li>
+        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
+        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
     </>
 
      const navigate = useNavigate()
@@ -140,7 +141,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {nav}
                     </ul>
                 </div>
@@ -149,7 +150,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-base font-medium">
+                <ul className="myclassName flex gap-6 menu-horizontal px-1 text-base font-medium">
                     {nav}
                 </ul>
             </div>

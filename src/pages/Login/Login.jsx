@@ -1,11 +1,51 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import loginAnimation from "../../assets/login.json"
+import { AuthContext } from '../../Provider/AuthContext/AuthContext';
+import ContexDatat from '../../Hooks/AuthContext/ContexData';
+import ContexData from '../../Hooks/AuthContext/ContexData';
+import { Bounce, toast } from 'react-toastify';
 
 const Login = () => {
+    const { loginAccount } = ContexData()
+
+    const loginHandler = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const formData = new FormData(form)
+        const { email, password } = Object.fromEntries(formData.entries())
+
+        loginAccount(email, password)
+            .then((result) => {
+                toast.success('🦄 Profile create Successfully', {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            })
+            .catch((error) => {
+                toast.error(`${error.code}`, {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            })
+    }
     return (
-        <div className="hero px-6 py-4 md:py-10 flex flex-col md:flex-row justify-center">
+        <div className="hero px-6 flex flex-col md:flex-row justify-center">
             {/* <Helmet>
                 <title>Roommate Hunt || Login</title>
             </Helmet> */}
@@ -21,7 +61,7 @@ const Login = () => {
                         <p className="px-3 text-base-content">OR</p>
                         <hr className="w-full text-base-content" />
                     </div>
-                    <form className="fieldset">
+                    <form onSubmit={loginHandler} className="fieldset">
                         <label className="label">Email</label>
                         <input type="email" name='email' className="input w-full" placeholder="Email" />
                         <label className="label">Password</label>
@@ -35,7 +75,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="">
-                <Lottie style={{ width: "400px" }} animationData={loginAnimation} loop={true}></Lottie>
+                <Lottie style={{ width: "360px" }} animationData={loginAnimation} loop={true}></Lottie>
             </div>
         </div>
     );

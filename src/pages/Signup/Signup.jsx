@@ -2,21 +2,86 @@ import React from 'react';
 import { Link } from 'react-router';
 import signupLottie from "../../assets/signup.json"
 import Lottie from 'lottie-react';
+import ContexData from '../../Hooks/AuthContext/ContexData';
+import { Bounce, toast } from 'react-toastify';
+
 
 const Signup = () => {
+
+    const { createAccount, profileUpdate } = ContexData()
 
     const SignupHandler = (e) => {
         e.preventDefault()
         const form = e.target
         const formData = new FormData(form)
         const { name, email, photo, password } = Object.fromEntries(formData.entries())
+
+        const pass = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/
+
+        if (!pass.test(password)) {
+            toast.error('Password must be at least 6 characters, include uppercase and lowercase letter !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce
+            });
+            return
+        }
+
+
+        createAccount(email, password)
+            .then((result) => {
+                console.log(result.user);
+                if (result.user) {
+                    const profile = {
+                        displayName: name,
+                        photoURL: photo
+                    }
+                    profileUpdate(profile)
+                        .then(() => {
+                                toast.success('🦄 Profile create Successfully', {
+                                    position: "top-right",
+                                    autoClose: 1000,
+                                    hideProgressBar: false,
+                                    closeOnClick: false,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "colored",
+                                    transition: Bounce
+                                });
+                        })
+                        .catch(() => {
+
+                        })
+                }
+
+            })
+            .catch((error) => {
+                toast.error(`${error.code}`, {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            })
     }
     return (
         <div className="hero px-6 py-4 pd:my-10 flex flex-col gap-2 md:gap-4 md:flex-row justify-center">
             {/* <Helmet>
                 <title>Roommate Hunt || Signup</title>
             </Helmet> */}
-            <div className="card bg-base-100 w-full border-base-300 border-b-[2px] border-t-[2px] shadow-sm max-w-sm shrink-0 shadow-2xl">
+            <div className="card bg-base-100 w-full border-base-300 border-b-[2px] border-t-[2px] shadow-sm max-w-sm shrink-0">
                 <div className="card-body">
 
                     <h1 className="text-5xl text-base-content font-bold text-center mb-5">Signup now!</h1>
@@ -46,7 +111,7 @@ const Signup = () => {
                 </div>
             </div>
             <div className="">
-                <Lottie style={{ width: "400px" }} animationData={signupLottie} loop={true}></Lottie>
+                <Lottie style={{ width: "360px" }} animationData={signupLottie} loop={true}></Lottie>
             </div>
         </div>
     );
