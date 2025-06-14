@@ -16,36 +16,36 @@
 //         <li classNameName='myclassName hover:text-[#DC143C] duration-400'><NavLink to={"/"}>Home</NavLink></li>
 //     </>
 
-//     // const logoutHandler = () => {
-//     //     logout()
-//     //         .then(() => {
-//     //             toast.success('🦄 Login Successfully', {
-//     //                 position: "top-right",
-//     //                 autoClose: 1000,
-//     //                 hideProgressBar: false,
-//     //                 closeOnClick: false,
-//     //                 pauseOnHover: true,
-//     //                 draggable: true,
-//     //                 progress: undefined,
-//     //                 theme: "colored",
-//     //                 transition: Bounce
-//     //             });
-//     //             navigate("/")
-//     //         })
-//     //         .catch(error => {
-//     //             toast.error(`${error.code}`, {
-//     //                 position: "top-right",
-//     //                 autoClose: 1000,
-//     //                 hideProgressBar: false,
-//     //                 closeOnClick: false,
-//     //                 pauseOnHover: true,
-//     //                 draggable: true,
-//     //                 progress: undefined,
-//     //                 theme: "colored",
-//     //                 transition: Bounce
-//     //             });
-//     //         })
-//     // }
+//     const logoutHandler = () => {
+//         logout()
+//             .then(() => {
+//                 toast.success('🦄 Login Successfully', {
+//                     position: "top-right",
+//                     autoClose: 1000,
+//                     hideProgressBar: false,
+//                     closeOnClick: false,
+//                     pauseOnHover: true,
+//                     draggable: true,
+//                     progress: undefined,
+//                     theme: "colored",
+//                     transition: Bounce
+//                 });
+//                 navigate("/")
+//             })
+//             .catch(error => {
+//                 toast.error(`${error.code}`, {
+//                     position: "top-right",
+//                     autoClose: 1000,
+//                     hideProgressBar: false,
+//                     closeOnClick: false,
+//                     pauseOnHover: true,
+//                     draggable: true,
+//                     progress: undefined,
+//                     theme: "colored",
+//                     transition: Bounce
+//                 });
+//             })
+//     }
 
 //     return (
 //         <div classNameName="navbar bg-base-100 shadow-sm border-b-2 border-bg-base-100">
@@ -124,14 +124,49 @@ import "./Navbar.css"
 import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
 import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
+import ContexData from '../../Hooks/AuthContext/ContexData';
+import { Bounce, toast } from 'react-toastify';
+import { CgProfile } from 'react-icons/cg';
+import { div } from 'framer-motion/client';
+
 const Navbar = () => {
     const nav = <>
         <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
-        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
     </>
 
-     const navigate = useNavigate()
-     const {pathname} = useLocation()
+    const navigate = useNavigate()
+    const { pathname } = useLocation()
+    const { userData, logout } = ContexData()
+
+    const logoutHandler = () => {
+        logout()
+            .then(() => {
+                toast.success('Logout Successfully', {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            })
+            .catch((error) => {
+                toast.error(`${error.code}`, {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            })
+    }
     return (
         <div className="navbar bg-base-200 shadow-sm">
             <div className="navbar-start">
@@ -154,19 +189,48 @@ const Navbar = () => {
                     {nav}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button onClick={() => navigate("/login")} className={`relative ${(pathname === "/login") && "bg-neutral"} inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group`}>
-                    <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
-                    <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
-                    <span className={`relative ${(pathname === "/login") && "text-neutral-content"} w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2`}><BiLogIn size={20} /> Login</span>
-                    <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
-                </button>
-                <button className="relative inline-flex items-center justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group">
-                    <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
-                    <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
-                    <span className="relative w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2"><BiLogOut size={20} /> Logout</span>
-                    <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
-                </button>
+
+            <div className="navbar-end space-x-3 md:space-x-4 lg:space-x-6">
+                <div className='relative flex w-[70px] h-[70px] group items-center'>
+                    {
+                        userData ? <>
+
+                            <div className="dropdown">
+                                <div tabIndex={0}>
+                                    <img className='cursor-pointer w-[35px] h-[35px] flex items-center rounded-full object-cover' src={userData?.photoURL} />
+                                </div>
+                                <ul tabIndex={0} className="dropdown-content menu bg-neutral text-neutral-content rounded-box z-1 w-40 p-2 shadow-sm">
+                                     <li className='text-neutral-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
+                                    <li className='hover:bg-base-300 rounded-box'><a>Item 2</a></li>
+                                </ul>
+                            </div>
+
+                        </>
+                            :
+                            <CgProfile size={35} color="#41F794" />
+                    }
+                    {
+                        userData && <div className="absolute top-0 opacity-0 group-hover:opacity-100 duration-300">
+                            <p className="text-base-300 text-[12px] font-medium">{userData?.displayName}</p>
+                        </div>
+                    }
+                </div>
+                {
+                    userData ? <button onClick={logoutHandler} className="relative inline-flex items-center cursor-pointer justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group">
+                        <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
+                        <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
+                        <span className="relative w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2"><BiLogOut size={20} /> Logout</span>
+                        <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
+                    </button>
+                        :
+                        <button onClick={() => navigate("/login")} className={`relative ${(pathname === "/login") && "bg-neutral"} inline-flex items-center cursor-pointer justify-start px-5 py-2.5 overflow-hidden font-medium rounded-lg group`}>
+                            <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-neutral opacity-[3%]"></span>
+                            <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-neutral opacity-100 group-hover:-translate-x-8"></span>
+                            <span className={`relative ${(pathname === "/login") && "text-neutral-content"} w-full text-left text-neutral transition-colors duration-200 ease-in-out group-hover:text-neutral-content flex justify-center items-center gap-2`}><BiLogIn size={20} /> Login</span>
+                            <span className="absolute inset-0 border-2 border-neutral rounded-lg"></span>
+                        </button>
+                }
+
             </div>
         </div>
     );
