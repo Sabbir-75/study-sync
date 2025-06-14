@@ -9,7 +9,7 @@ const Root = () => {
         <div>
              <ToastContainer />
             <Navbar></Navbar>
-            <div className='bg-base-200 py-2 md:py-6 lg:py-10 min-h-[calc(100vh-434.67px)]'>
+            <div className='bg-base-200 px-2 md:px-3 py-2 md:py-6 lg:py-10 min-h-[calc(100vh-434.67px)]'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
