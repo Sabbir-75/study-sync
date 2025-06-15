@@ -3,10 +3,14 @@ import createLottie from "../../assets/create.json"
 import Lottie from 'lottie-react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import ContexData from '../../Hooks/AuthContext/ContexData';
 const CreateAssignment = () => {
-
+ 
     const [selectedDate, setSelectedDate] = useState(new Date);
-    const newDate = selectedDate.toLocaleDateString()
+    const due_date = selectedDate.toLocaleDateString()
+    const{userData} = ContexData()
 
     const assignmentHandler = (e) => {
         e.preventDefault()
@@ -16,9 +20,25 @@ const CreateAssignment = () => {
 
         const allAssignData = {
             ...assignmentData,
-            newDate
+            due_date
         }
         console.log(allAssignData);
+
+        axios.post("http://localhost:5000/assignments",allAssignData)
+        .then(data => {
+            console.log(data.data);
+            if(data.data.insertedId){
+                 Swal.fire({
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }
+        })
+        .catch((error) => {
+            console.log(error.message);
+        })
     }
 
     return (
@@ -68,11 +88,11 @@ const CreateAssignment = () => {
                     <label className="font-medium text-center">Creator info</label>
 
                     <label className="label">Email</label>
-                    <input type="email" name='hr_email' placeholder='email' className="input w-full" />
+                    <input type="email" name='hr_email' value={userData?.email} className="input w-full" />
                     {/* <input type="email" name='hr_email' value={user?.email} className="input" /> */}
 
                     <label className="label">Name</label>
-                    <input type="text" name='hr_name' className="input w-full" placeholder="name" />
+                    <input type="text" name='hr_name' className="input w-full" value={userData?.displayName} />
                 </fieldset>
 
             </div>

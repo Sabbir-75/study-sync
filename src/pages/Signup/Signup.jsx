@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import signupLottie from "../../assets/signup.json"
 import Lottie from 'lottie-react';
 import ContexData from '../../Hooks/AuthContext/ContexData';
@@ -10,6 +10,7 @@ const Signup = () => {
 
     const { createAccount, profileUpdate, googleLogin } = ContexData()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const SignupHandler = (e) => {
         e.preventDefault()
@@ -56,7 +57,7 @@ const Signup = () => {
                                     theme: "colored",
                                     transition: Bounce
                                 });
-                                navigate("/")
+                               navigate(location.state || "/")
                         })
                         .catch(() => {
 

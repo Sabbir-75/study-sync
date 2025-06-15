@@ -6,6 +6,8 @@ import Signup from "../pages/Signup/Signup";
 import CreateAssignment from "../pages/CreateAssignment/CreateAssignment";
 import MyAssignments from "../pages/MyAssignments/MyAssignments";
 import Assignments from "../pages/Assignments/Assignments";
+import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
+import View from "../pages/View/View";
 
 
 export const router = createBrowserRouter([{
@@ -18,11 +20,17 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/assignments",
+            loader: () => fetch("http://localhost:5000/assignments"),
             Component: Assignments
         },
         {
             path: "/createassignment",
             Component: CreateAssignment
+        },
+        {
+            path: "/view/:id",
+            loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`),
+            Component: View
         },
         {
             path: "/myassignments",

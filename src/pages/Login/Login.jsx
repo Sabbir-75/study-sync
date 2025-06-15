@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
 import React from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import loginAnimation from "../../assets/login.json"
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import { Bounce, toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import { Bounce, toast } from 'react-toastify';
 const Login = () => {
     const { loginAccount, googleLogin } = ContexData()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -28,7 +29,7 @@ const Login = () => {
                     theme: "colored",
                     transition: Bounce
                 });
-                navigate("/")
+                navigate(location.state || "/")
             })
             .catch((error) => {
                 toast.error(`${error.code}`, {
@@ -59,7 +60,7 @@ const Login = () => {
                     theme: "colored",
                     transition: Bounce
                 });
-                navigate("/")
+                navigate(location.state || "/")
             })
             .catch((error) => {
                 toast.error(`${error.code}`, {
