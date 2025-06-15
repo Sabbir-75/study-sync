@@ -105,7 +105,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            <div className="">
+            <div>
                 <Lottie style={{ width: "360px" }} animationData={loginAnimation} loop={true}></Lottie>
             </div>
         </div>

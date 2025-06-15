@@ -1,5 +1,4 @@
 
-// import { motion } from "framer-motion";
 import React, { use } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,11 +8,13 @@ import { Typewriter } from 'react-simple-typewriter'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import question from "../../assets/question.json"
 import "./styles.css"
 import { Link } from 'react-router';
 import { BiLogIn } from 'react-icons/bi';
 import ContexData from '../../Hooks/AuthContext/ContexData';
+import Lottie from 'lottie-react';
+import FeaturesSection from '../../Components/Feature/Feature';
 
 const response = fetch("/banner.json").then(res => res.json())
 const Home = () => {
@@ -53,14 +54,14 @@ const Home = () => {
                                     </motion.h1>
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, ease: "easeOut" }}
+                                        animate={{ opacity: 1, y: 0, color: ["#ffffff", "red", "#33ff4f", "#f5cba7", "#3361ff"] }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
 
                                         className='text-center text-neutral font-bold text-xl md:text-4xl lg:text-6xl'>
 
                                         <Typewriter
                                             words={['Innovation', 'Novelty', 'Modernization', 'Improvement!']}
-                                            loop={5}
+                                            loop={true}
                                             cursor
                                             cursorStyle='_'
                                             typeSpeed={70}
@@ -95,9 +96,13 @@ const Home = () => {
                 }
             </Swiper>
             <div className='max-w-[800px] mx-auto mt-10 '>
-                <h1 className='text-center mb-10 text-4xl font-bold'>Frequently Asked <span className='text-neutral'>Questions</span></h1>
+                <div className='flex justify-center mb-4 md:mb-10 items-center gap-3'>
+                    <Lottie style={{ width: "40px" }} animationData={question} loop={true}></Lottie>
+                    <h1 className='text-center text-xl md:text-3xl lg:text-4xl font-bold'>Frequently Asked <span className='text-neutral'>Questions</span></h1>
+                </div>
+
                 <div className="join-vertical bg-base-100">
-                    
+
                     <div className="collapse collapse-arrow join-item">
                         <input type="radio" name="my-accordion-4" defaultChecked />
                         <div className="collapse-title font-semibold">Q. What is StudySync?</div>
@@ -125,7 +130,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
+            <FeaturesSection></FeaturesSection>
         </div>
 
     );

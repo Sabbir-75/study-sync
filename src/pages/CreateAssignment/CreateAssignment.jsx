@@ -53,7 +53,7 @@ const CreateAssignment = () => {
                         <option>Hard</option>
                     </select>
                     <label className="label">Due Date</label>
-                    <div className="w-full  flex justify-start border rounded-lg border-amber-50">
+                    <div className="w-full flex justify-start border rounded-lg border-amber-50">
                         <DatePicker
                             className=" py-3 border-none focus:outline-none pl-3 px-2 text-base-content font-medium w-full"
                             selected={selectedDate}

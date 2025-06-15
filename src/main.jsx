@@ -6,9 +6,11 @@ import { router } from './Routes/Routes'
 import AuthProvider from './Provider/AuthProvider/AuthProvider'
 
 createRoot(document.getElementById('root')).render(
+  
   <AuthProvider>
     <RouterProvider router={router}>
     </RouterProvider>
   </AuthProvider>
 
 )
+
