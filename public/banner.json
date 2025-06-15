@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "StudySync—Where Learning Meets",
+        "sub_title": "Empowering Your Learning Journey with Smart Study Tools",
+        "button1": "Read More",
+        "button2": "Register Now",
+        "img": "https://i.ibb.co/0pDszRdm/Effective-Study-Tips-for-College-Students.webp"
+    },
+    {
+        "id": 2,
+        "title": "StudySync—Where Learning Meets",
+        "sub_title": "Empowering Your Learning Journey with Smart Study Tools",
+        "button1": "Explore Now",
+        "button2": "ExRegister Now",
+        "img": "https://i.ibb.co/v4jbqwzz/Blog-Header-Study-Tips.jpg"
+    },
+    {
+        "id": 3,
+        "title": "StudySync—Where Learning Meets",
+        "sub_title": "Empowering Your Learning Journey with Smart Study Tools",
+        "button1": "Start Learning",
+        "button2": "StartRegister Now",
+        "img": "https://i.ibb.co/VcvGVVpJ/image.webp"
+    }
+]
