@@ -4,9 +4,56 @@ import { SiLevelsdotfyi } from 'react-icons/si';
 import { useLoaderData } from 'react-router';
 import { IoMdPersonAdd } from "react-icons/io";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import ContexData from '../../Hooks/AuthContext/ContexData';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 const View = () => {
     const assignmentData = useLoaderData()
+    const { userData } = ContexData()
+
+    const submissionHandler = (e, id, email) => {
+        e.preventDefault()
+        const assignmentId = id
+        const submittedBy = email
+        const docLink = e.target.docLink.value
+        const note = e.target.note.value
+        const status = "pending"
+        const assignmentTitle = assignmentData.title
+        const assignmentMarks = assignmentData.marks
+        const submittedAt = new Date().toLocaleString();
+        const sumittedData = {
+            assignmentId,
+            assignmentTitle,
+            submittedBy,
+            assignmentMarks,
+            docLink,
+            note,
+            status,
+            submittedAt,
+            obtained: "",
+            feedback: ""
+        }
+        console.log(sumittedData);
+        axios.post("http://localhost:5000/submitions", sumittedData)
+            .then(data => {
+                if (data.data.insertedId) {
+                    document.getElementById('my_modal_5').close()
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your Assignment has been submitted",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    e.target.reset()
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+    }
 
     return (
         <div className='max-w-6xl mx-auto px-4 py-3'>
@@ -26,19 +73,60 @@ const View = () => {
                         </div>
                         <div className='flex justify-center gap-4 w-full'>
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
-                            <button className="px-4 w-full py-1 rounded-sm text-neutral-content cursor-pointer bg-neutral" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button>
+                            <button className="px-4 w-full py-1 rounded-sm text-neutral-content cursor-pointer bg-neutral" onClick={() => document.getElementById('my_modal_5').showModal()}>Take assignment</button>
+
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
-                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                    <p className="py-4">Press ESC key or click the button below to close</p>
+                                    <h3 className="text-center text-base-content font-bold text-2xl">
+                                        Assignment <span className='text-neutral'>Submission</span> Form
+                                    </h3>
+
                                     <div className="modal-action">
-                                        <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn">Close</button>
+                                        <form
+                                            onSubmit={(e) => submissionHandler(e, assignmentData._id, userData?.email)}
+                                            className='w-full text-gray-200'
+                                        >
+                                            <fieldset className="fieldset space-y-2 rounded-box p-4">
+                                                <label className="label">Google Docs Link</label>
+                                                <input
+                                                    required
+                                                    type="url"
+                                                    name='docLink'
+                                                    className="input w-full"
+                                                    placeholder="https://docs.google.com/document/..."
+                                                />
+                                                <label className="label">Note</label>
+                                                <textarea
+                                                    required
+                                                    className="textarea w-full"
+                                                    name='note'
+                                                    placeholder="Your note"
+                                                ></textarea>
+                                            </fieldset>
+
+                                            <div className='text-center px-4.5 mt-4'>
+                                                <button
+                                                    type='submit'
+                                                    className='w-full py-1 rounded-bl-sm rounded-tr-sm text-white hover:bg-green-700 bg-green-600'
+                                                >
+                                                    Submit
+                                                </button>
+                                            </div>
+
+                                            <div className='px-6 mt-2 flex justify-end'>
+                                                <button
+                                                    type='button'
+                                                    onClick={() => document.getElementById('my_modal_5').close()}
+                                                    className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </dialog>
+
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import MyAssignments from "../pages/MyAssignments/MyAssignments";
 import Assignments from "../pages/Assignments/Assignments";
 import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import View from "../pages/View/View";
+import Update from "../pages/Update/Update";
 
 
 export const router = createBrowserRouter([{
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([{
             path: "/view/:id",
             loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`),
             Component: View
+        },
+        {
+            path: "/update/:id",
+            loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`),
+            Component: Update
         },
         {
             path: "/myassignments",

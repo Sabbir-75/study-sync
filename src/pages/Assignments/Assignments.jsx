@@ -59,6 +59,20 @@ const Assignments = () => {
     const viewHandler = (id) => {
         navigate(`/view/${id}`)
     }
+
+    const updateHandler = (id, data) => {
+        if (userData?.email === data.hr_email) {
+            navigate(`/update/${id}`)
+        }
+        else {
+            return Swal.fire({
+                icon: "error",
+                title: "Oops...! This assignment was not created by you.",
+
+            });
+        }
+
+    }
     return (
         <>
 
@@ -78,7 +92,7 @@ const Assignments = () => {
                                 </div>
                                 <div className='flex justify-center gap-4'>
                                     <button onClick={() => viewHandler(data._id)} className='px-4 py-1 rounded-sm text-white hover:bg-blue-600 bg-blue-500'>View</button>
-                                    <button className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
+                                    <button onClick={() => updateHandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
                                     <button onClick={() => deleteHaandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'>Delete</button>
 
                                 </div>
