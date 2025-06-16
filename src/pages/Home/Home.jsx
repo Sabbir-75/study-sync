@@ -50,7 +50,7 @@ const Home = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, ease: "easeOut" }}
 
-                                        className='text-center text-neutral font-bold text-xl md:text-4xl lg:text-6xl'>{data.title}
+                                        className='text-center text-base-content font-bold text-xl md:text-4xl lg:text-6xl'>{data.title}
                                     </motion.h1>
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
@@ -74,15 +74,15 @@ const Home = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, ease: "easeOut" }}
-                                        className='text-center text-neutral my-2 md:mt-4 text-base md:text-xl lg:text-2xl'>{data.sub_title}</motion.h1>
+                                        className='text-center text-base-content my-2 md:mt-4 text-base md:text-xl lg:text-2xl'>{data.sub_title}</motion.h1>
                                     <div className='flex gap-3 justify-center'>
-                                        <Link to={"/register"} className="rounded px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                                        <Link to={"/register"} className="rounded px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-neutral relative hover:bg-gradient-to-r hover:from-neutral hover:to-neutral text-neutral-content hover:ring-2 hover:ring-offset-2 hover:ring-neutral transition-all ease-out duration-300">
                                             <span className="relative text-sm md:text-base">{data.button1}</span>
                                         </Link>
                                         {
-                                            userData ? <Link className="rounded flex items-center px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                                            userData ? <Link className="rounded flex items-center px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-neutral relative hover:bg-gradient-to-r hover:from-neutral hover:to-neutral text-neutral-content hover:ring-2 hover:ring-offset-2 hover:ring-neutral transition-all ease-out duration-300">
                                                 <span className="relative text-sm md:text-base flex justify-center items-center gap-2">Registered</span>
-                                            </Link> : <Link to={"/Signup"} className="rounded flex items-center px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                                            </Link> : <Link to={"/Signup"} className="rounded flex items-center px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-neutral relative hover:bg-gradient-to-r hover:from-neutral hover:to-neutral text-neutral-content hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
                                                 <span className="relative text-sm md:text-base flex justify-center items-center gap-2"><BiLogIn size={20} /> {data.button2}</span>
                                             </Link>
                                         }

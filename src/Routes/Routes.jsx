@@ -9,6 +9,8 @@ import Assignments from "../pages/Assignments/Assignments";
 import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import View from "../pages/View/View";
 import Update from "../pages/Update/Update";
+import PendingAssignment from "../pages/PendingAssignment/PendingAssignment";
+import pending from "../pages/PendingAssignment/pending";
 
 
 export const router = createBrowserRouter([{
@@ -41,6 +43,10 @@ export const router = createBrowserRouter([{
         {
             path: "/myassignments",
             Component: MyAssignments
+        },
+        {
+            path: "/pending",
+            Component: pending
         },
         {
             path: "/login",

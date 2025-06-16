@@ -1,14 +1,20 @@
 import React from 'react';
-import logo from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
+import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
+import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (2).png"
 import { Link } from 'react-router';
 import { MdEmail } from 'react-icons/md';
+import ContexData from '../../Hooks/AuthContext/ContexData';
 
 const Footer = () => {
+    const {themeChanger} = ContexData()
     return (
         <footer className="px-4 divide-y bg-base-200 text-base-content">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 flex flex-col items-center">
-                    <img className='max-w-[300px]' src={logo} alt={logo} />
+                    {
+                        (themeChanger === "forest") ? <img className='max-w-[300px]' src={logoDark} alt={logoDark} /> : <img className='max-w-[300px]' src={logoDefauilt} alt={logoDefauilt} />
+                    }
+                    
                     <div className="join">
                         <input
                             type="email"

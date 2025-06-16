@@ -3,7 +3,6 @@ import AssignmentRow from './AssignmentRow';
 
 const AssignmenysTable = ({ assignmentAttempedRespons }) => {
     const myLists = use(assignmentAttempedRespons)
-    console.log(myLists);
     return (
         <div className="overflow-x-auto rounded-2xl border-base-300 border">
             <table className="table ">

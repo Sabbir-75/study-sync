@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Navbar.css"
 import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
+import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (2).png"
 import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import ContexData from '../../Hooks/AuthContext/ContexData';
@@ -12,11 +13,12 @@ const Navbar = () => {
     const nav = <>
         <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
         <li className='text-white hover:text-neutral duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
+        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/pending"}>Pending Assignments</NavLink></li>
     </>
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    const { userData, logout } = ContexData()
+    const { userData, logout, setThemeChanger } = ContexData()
 
     const logoutHandler = () => {
         logout()
@@ -47,6 +49,23 @@ const Navbar = () => {
                 });
             })
     }
+
+    // For Theme Change
+
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem("theme") || "forest"
+    })
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+    const handleToggle = (e) => {
+        setTheme(e.target.checked ? "dark" : "forest")
+        setThemeChanger(theme)
+    }
+
     return (
         <div className="navbar bg-base-200 shadow-sm">
             <div className="navbar-start">
@@ -61,7 +80,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link className='text-white max-w-[200px]'>
-                    <img src={logoDefauilt} alt={logoDefauilt} />
+                {
+                    (theme === "forest") ? <img src={logoDefauilt} alt={logoDefauilt} /> : <img src={logoDark} alt={logoDark} />
+                }
+                    
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -71,6 +93,13 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end space-x-1 md:space-x-2 lg:space-x-3">
+                <label className="toggle text-base-content">
+                    <input type="checkbox" onChange={handleToggle} checked={theme === "dark"} />
+                    <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
+
+                    <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
+
+                </label>
                 <div className='relative flex w-[70px] h-[70px] group items-center'>
                     {
                         userData ? <>
@@ -80,8 +109,8 @@ const Navbar = () => {
                                     <img className='cursor-pointer w-[35px] h-[35px] flex items-center rounded-full object-cover' src={userData?.photoURL} />
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-neutral text-neutral-content rounded-box z-1 w-40 p-2 shadow-sm">
-                                     <li className='text-neutral-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
-                                     <li className='text-neutral-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/myassignments"}> My Assignments</NavLink></li>
+                                    <li className='text-neutral-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
+                                    <li className='text-neutral-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/myassignments"}> My Assignments</NavLink></li>
                                 </ul>
                             </div>
 

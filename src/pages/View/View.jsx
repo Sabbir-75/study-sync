@@ -32,6 +32,7 @@ const View = () => {
             note,
             status,
             submittedAt,
+            name: userData?.displayName,
             obtained: "",
             feedback: ""
         }

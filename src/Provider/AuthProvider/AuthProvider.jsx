@@ -7,6 +7,7 @@ const AuthProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true)
     const [userData, setUserData] = useState(null)
+    const [themeChanger, setThemeChanger] = useState()
 
     const createAccount = (email, password) => {
         setLoading(true)
@@ -52,7 +53,9 @@ const AuthProvider = ({ children }) => {
         profileUpdate,
         logout,
         userData,
-        loading
+        loading,
+        themeChanger,
+        setThemeChanger
     }
     return (
         <AuthContext value={authData}>
