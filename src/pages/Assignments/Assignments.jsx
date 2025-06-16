@@ -1,15 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SiLevelsdotfyi } from "react-icons/si";
 import { FaBullseye } from "react-icons/fa6";
-import { useLoaderData, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 const Assignments = () => {
 
-    const assignmentData = useLoaderData()
-    const [assignAllData, setAssignmentAllData] = useState(assignmentData)
+
+    const [assignAllData, setAssignmentAllData] = useState([]);
     const { userData } = ContexData()
     const navigate = useNavigate()
 
@@ -60,6 +60,22 @@ const Assignments = () => {
         navigate(`/view/${id}`)
     }
 
+
+    // By Using Hooks
+
+
+    const [difficulty, setDifficulty] = useState("");
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        const fetchAssignments = async () => {
+            const res = await axios.get(`http://localhost:5000/assignments?difficulty=${difficulty}&search=${search}`);
+            setAssignmentAllData(res.data);
+        };
+
+        fetchAssignments();
+    }, [difficulty, search]);
+
     const updateHandler = (id, data) => {
         if (userData?.email === data.hr_email) {
             navigate(`/update/${id}`)
@@ -76,7 +92,28 @@ const Assignments = () => {
     return (
         <>
 
-            <div className='max-w-6xl mx-auto px-4 py-12'>
+            <div className='max-w-7xl mx-auto px-4 py-12'>
+                <div className="max-w-[400px] mx-auto flex gap-4 mb-4">
+                    {/* Search Input */}
+                    <input
+                        type="text"
+                        placeholder="Search by title"
+                        className="input input-bordered"
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+
+                    {/* Difficulty Filter */}
+                    <select
+                        className="select select-bordered"
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    >
+                        <option value="">All</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {

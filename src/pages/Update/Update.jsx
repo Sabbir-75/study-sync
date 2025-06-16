@@ -59,14 +59,14 @@ const Update = () => {
                     <label className="label">Title</label>
                     <input type="text" name='title' className="input w-full" defaultValue={title} />
                     <label className="label">Description</label>
-                    <textarea className="textarea w-full" name='description' defaultValue={description}></textarea>
+                    <textarea  minLength={20} className="textarea w-full" name='description' defaultValue={description}></textarea>
                 </fieldset>
                 <fieldset className="fieldset space-y-2 rounded-box p-4">
 
                     <label className="label">Marks</label>
                     <input type="number" name='marks' className="input w-full" defaultValue={marks} />
                     <label className="label">Thumbnail Image URL</label>
-                    <input type="text" name='thumbnail_URL' className="input w-full" defaultValue={thumbnail_URL} />
+                    <input type='url' name='thumbnail_URL' className="input w-full" defaultValue={thumbnail_URL} />
                 </fieldset>
                 <fieldset className="fieldset space-y-1 rounded-box p-4">
 

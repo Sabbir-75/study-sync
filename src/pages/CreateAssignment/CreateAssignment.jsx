@@ -7,10 +7,10 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import ContexData from '../../Hooks/AuthContext/ContexData';
 const CreateAssignment = () => {
- 
+
     const [selectedDate, setSelectedDate] = useState(new Date);
     const due_date = selectedDate.toLocaleDateString()
-    const{userData} = ContexData()
+    const { userData } = ContexData()
 
     const assignmentHandler = (e) => {
         e.preventDefault()
@@ -24,21 +24,21 @@ const CreateAssignment = () => {
         }
         console.log(allAssignData);
 
-        axios.post("http://localhost:5000/assignments",allAssignData)
-        .then(data => {
-            console.log(data.data);
-            if(data.data.insertedId){
-                 Swal.fire({
+        axios.post("http://localhost:5000/assignments", allAssignData)
+            .then(data => {
+                console.log(data.data);
+                if (data.data.insertedId) {
+                    Swal.fire({
                         icon: "success",
                         title: "Your work has been saved",
                         showConfirmButton: false,
                         timer: 1500
                     });
-            }
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+                }
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     return (
@@ -51,26 +51,29 @@ const CreateAssignment = () => {
                 <fieldset className="fieldset space-y-1 rounded-box p-4">
 
                     <label className="label">Title</label>
-                    <input type="text" name='title' className="input w-full" placeholder="title" />
+                    <input required type="text" name='title' className="input w-full" placeholder="title" />
                     <label className="label">Description</label>
-                    <textarea className="textarea w-full" name='description' placeholder="description"></textarea>
+                    <textarea required minLength={20} className="textarea w-full" name='description' placeholder="description"></textarea>
                 </fieldset>
                 <fieldset className="fieldset space-y-2 rounded-box p-4">
 
                     <label className="label">Marks</label>
-                    <input type="number" name='marks' className="input w-full" placeholder="marks" />
+                    <input required type="number" name='marks' className="input w-full" placeholder="marks" />
                     <label className="label">Thumbnail Image URL</label>
-                    <input type="text" name='thumbnail_URL' className="input w-full" placeholder="URL" />
+                    <input required type="url" name='thumbnail_URL' className="input w-full" placeholder="URL" />
                 </fieldset>
                 <fieldset className="fieldset space-y-1 rounded-box p-4">
 
-
                     <label className="label">Difficulty Level</label>
-                    <select name='difficulty_level' className="select w-full">
-                        <option disabled={true}>Pick a currency</option>
-                        <option>Easy</option>
-                        <option>Medium</option>
-                        <option>Hard</option>
+                    <select
+                        name="difficulty_level"
+                        required
+                        className="select w-full"
+                    >
+                        <option value="">Select difficulty</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
                     </select>
                     <label className="label">Due Date</label>
                     <div className="w-full flex justify-start border rounded-lg border-amber-50">

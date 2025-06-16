@@ -23,7 +23,6 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/assignments",
-            loader: () => fetch("http://localhost:5000/assignments"),
             Component: Assignments
         },
         {
