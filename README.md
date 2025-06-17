@@ -1,6 +1,6 @@
 ## Website Name : StudySync
 
-## live URL : 
+## live URL : https://my-studysync.netlify.app/
 
 ## Purpose 
 StudySync is a web-based assignment management platform designed for students and educators. It allows students to view assignments, submit their work, and check their results. Teachers can create, update, and delete assignments as needed. The main goal of this project is to enhance the use of technology in education and provide a user-friendly online learning environment for all users.
