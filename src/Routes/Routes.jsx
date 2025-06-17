@@ -6,11 +6,10 @@ import Signup from "../pages/Signup/Signup";
 import CreateAssignment from "../pages/CreateAssignment/CreateAssignment";
 import MyAssignments from "../pages/MyAssignments/MyAssignments";
 import Assignments from "../pages/Assignments/Assignments";
-import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import View from "../pages/View/View";
 import Update from "../pages/Update/Update";
-import PendingAssignment from "../pages/PendingAssignment/PendingAssignment";
-import pending from "../pages/PendingAssignment/pending";
+import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
+
 
 
 export const router = createBrowserRouter([{
@@ -27,7 +26,7 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/createassignment",
-            Component: CreateAssignment
+            element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
         },
         {
             path: "/view/:id",
@@ -41,11 +40,12 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/myassignments",
-            Component: MyAssignments
+            element: <PrivateRoute><MyAssignments></MyAssignments></PrivateRoute>
         },
         {
             path: "/pending",
-            Component: pending
+            element: <PrivateRoute><pending></pending></PrivateRoute>,
+           
         },
         {
             path: "/login",

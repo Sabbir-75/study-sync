@@ -15,7 +15,7 @@ const UseAxioxSecure = () => {
         config.headers.authorization = `Bearer ${userData?.accessToken}`
         return config
     })
-
+      console.log(userData.accessToken);
     // For Response
 
     axiosInstance.interceptors.response.use(
