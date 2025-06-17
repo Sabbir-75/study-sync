@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaBullseye } from 'react-icons/fa6';
 import { SiLevelsdotfyi } from 'react-icons/si';
 import { useLoaderData } from 'react-router';
@@ -7,11 +7,20 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const View = () => {
     const assignmentData = useLoaderData()
     const { userData } = ContexData()
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true, // animation happens only once
+        });
+    }, []);
 
     const submissionHandler = (e, id, email) => {
         e.preventDefault()
@@ -37,7 +46,7 @@ const View = () => {
             feedback: ""
         }
         console.log(sumittedData);
-        axios.post("http://localhost:5000/submitions", sumittedData)
+        axios.post("https://studysync-server-kappa.vercel.app/submitions", sumittedData)
             .then(data => {
                 if (data.data.insertedId) {
                     document.getElementById('my_modal_5').close()
@@ -57,7 +66,10 @@ const View = () => {
     }
 
     return (
-        <div className='max-w-6xl mx-auto px-4 py-3'>
+        <div data-aos="fade-up" className='max-w-6xl mx-auto px-4 py-3'>
+            <Helmet>
+                <title>StudySync || View</title>
+            </Helmet>
             <div className='max-w-2xl mx-auto'>
                 <div className="p-4 shadow-md bg-base-100 dark:text-gray-800">
                     <div className="space-y-4">

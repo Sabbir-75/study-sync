@@ -9,6 +9,9 @@ import Assignments from "../pages/Assignments/Assignments";
 import View from "../pages/View/View";
 import Update from "../pages/Update/Update";
 import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
+import Pending from "../pages/PendingAssignment/pending";
+import Error from "../pages/Error/Error";
+
 
 
 
@@ -30,13 +33,13 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/view/:id",
-            loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`),
-            Component: View
+            loader: ({ params }) => fetch(`https://studysync-server-kappa.vercel.app/assignment/${params.id}`),
+            element: <PrivateRoute><View></View></PrivateRoute>
         },
         {
             path: "/update/:id",
-            loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`),
-            Component: Update
+            loader: ({ params }) => fetch(`https://studysync-server-kappa.vercel.app/assignment/${params.id}`),
+            element: <PrivateRoute><Update></Update></PrivateRoute>
         },
         {
             path: "/myassignments",
@@ -44,8 +47,9 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/pending",
-            element: <PrivateRoute><pending></pending></PrivateRoute>,
-           
+            element: <PrivateRoute><Pending></Pending></PrivateRoute>
+
+
         },
         {
             path: "/login",
@@ -56,4 +60,9 @@ export const router = createBrowserRouter([{
             Component: Signup
         },
     ]
-}])
+},
+{
+    path: "*",
+    element: <Error />
+}
+])

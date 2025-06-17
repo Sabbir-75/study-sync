@@ -1,6 +1,6 @@
 import React from 'react';
 import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
-import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (2).png"
+import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (5).png"
 import { Link } from 'react-router';
 import { MdEmail } from 'react-icons/md';
 import ContexData from '../../Hooks/AuthContext/ContexData';
@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 flex flex-col items-center">
                     {
-                        (themeChanger === "forest") ? <img className='max-w-[300px]' src={logoDark} alt={logoDark} /> : <img className='max-w-[300px]' src={logoDefauilt} alt={logoDefauilt} />
+                        (themeChanger === "forest") ? <img className='max-w-[300px]' src={logoDefauilt} alt={logoDark} /> : <img className='max-w-[300px]' src={logoDark} alt={logoDefauilt} />
                     }
                     
                     <div className="join">

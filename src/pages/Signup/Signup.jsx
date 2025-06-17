@@ -4,6 +4,7 @@ import signupLottie from "../../assets/signup.json"
 import Lottie from 'lottie-react';
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import { Bounce, toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 
 const Signup = () => {
@@ -112,9 +113,9 @@ const Signup = () => {
     }
     return (
         <div className="hero px-6 py-4 pd:my-10 flex flex-col gap-2 md:gap-4 md:flex-row justify-center">
-            {/* <Helmet>
-                <title>Roommate Hunt || Signup</title>
-            </Helmet> */}
+           <Helmet>
+                <title>StudySync || Signup</title>
+            </Helmet>
             <div className="card bg-base-100 w-full border-base-300 border-b-[2px] border-t-[2px] shadow-sm max-w-sm shrink-0">
                 <div className="card-body">
 

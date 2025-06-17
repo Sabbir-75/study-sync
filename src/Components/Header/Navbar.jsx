@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Navbar.css"
 import logoDefauilt from "../../assets/Black Blue and Green Modern School Logo Design (3).png"
-import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (2).png"
+import logoDark from "../../assets/Black Blue and Green Modern School Logo Design (5).png"
 import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import ContexData from '../../Hooks/AuthContext/ContexData';
@@ -10,15 +10,18 @@ import { Bounce, toast } from 'react-toastify';
 import { CgProfile } from 'react-icons/cg';
 
 const Navbar = () => {
-    const nav = <>
-        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
-        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
-        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/pending"}>Pending Assignments</NavLink></li>
-    </>
-
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const { userData, logout, setThemeChanger } = ContexData()
+    const nav = <>
+        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
+        <li className='text-white hover:text-neutral duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
+        {
+            userData && <li className='text-white hover:text-neutral duration-150'><NavLink to={"/pending"}>Pending Assignments</NavLink></li>
+        }
+    </>
+
+
 
     const logoutHandler = () => {
         logout()
@@ -59,7 +62,8 @@ const Navbar = () => {
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme)
         localStorage.setItem("theme", theme)
-    }, [theme])
+         setThemeChanger(theme)
+    }, [theme,setThemeChanger])
 
     const handleToggle = (e) => {
         setTheme(e.target.checked ? "dark" : "forest")
@@ -80,10 +84,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link className='text-white max-w-[200px]'>
-                {
-                    (theme === "forest") ? <img src={logoDefauilt} alt={logoDefauilt} /> : <img src={logoDark} alt={logoDark} />
-                }
-                    
+                    {
+                        (theme === "forest") ? <img src={logoDefauilt} alt={logoDefauilt} /> : <img src={logoDark} alt={logoDark} />
+                    }
+
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

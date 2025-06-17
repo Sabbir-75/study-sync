@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import DatePicker from 'react-datepicker';
@@ -7,12 +7,21 @@ import Lottie from 'lottie-react';
 import createLottie from "../../assets/create.json"
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Update = () => {
     const data = useLoaderData()
     const navigate = useNavigate()
     const { _id, title, description, marks, thumbnail_URL, difficulty_level, due_date } = data
     const { userData } = ContexData()
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true, // animation happens only once
+        });
+    }, []);
     const [selectedDate, setSelectedDate] = useState(
         due_date ? new Date(due_date) : new Date()
     );
@@ -28,7 +37,7 @@ const Update = () => {
             ...updated,
             due_date: newDate
         }
-        axios.patch(`http://localhost:5000/assignment/${_id}`, updatedData)
+        axios.patch(`https://studysync-server-kappa.vercel.app/assignment/${_id}`, updatedData)
             .then(data => {
                 if (data.data.modifiedCount) {
                     Swal.fire({
@@ -48,7 +57,10 @@ const Update = () => {
 
     return (
 
-        <form onSubmit={updateHandler} className='max-w-[800px] mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+        <form data-aos="fade-down" onSubmit={updateHandler} className='max-w-[800px] mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+            <Helmet>
+                <title>StudySync || Update</title>
+            </Helmet>
             <div className='flex justify-center items-center gap-5'>
                 <Lottie style={{ width: "30px" }} animationData={createLottie} loop={true}></Lottie>
                 <h1 className='text-center text-3xl font-bold py-6'>Update Your Assignment</h1>
@@ -59,7 +71,7 @@ const Update = () => {
                     <label className="label">Title</label>
                     <input type="text" name='title' className="input w-full" defaultValue={title} />
                     <label className="label">Description</label>
-                    <textarea  minLength={20} className="textarea w-full" name='description' defaultValue={description}></textarea>
+                    <textarea minLength={20} className="textarea w-full" name='description' defaultValue={description}></textarea>
                 </fieldset>
                 <fieldset className="fieldset space-y-2 rounded-box p-4">
 

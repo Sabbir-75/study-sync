@@ -1,12 +1,17 @@
 import React, { Suspense } from 'react';
 import { Blocks } from 'react-loader-spinner';
 import PendingAssignment from './PendingAssignment';
+import PendingRes from '../../Hooks/UseApi/PendingRes/PendingRes';
+import { Helmet } from 'react-helmet';
 
 
-const pending = () => {
-    const pendingResDatas = fetch("http://localhost:5000/submitions").then(res => res.json())
+const Pending = () => {
+    const { pendingResDatas } = PendingRes()
     return (
         <div className='max-w-[1200px] mx-auto'>
+            <Helmet>
+                <title>StudySync || Pending</title>
+            </Helmet>
             <h1 className='text-center text-4xl font-bold text-base-content'>Pending <span className='text-neutral'>Assignments</span></h1>
             <Suspense fallback={<div className='flex justify-center'>
                 <Blocks
@@ -19,10 +24,10 @@ const pending = () => {
                     visible={true}
                 />
             </div>}>
-                <PendingAssignment pendingResDatas={pendingResDatas}></PendingAssignment>
+                <PendingAssignment pendingResDatas={pendingResDatas()}></PendingAssignment>
             </Suspense>
         </div>
     );
 };
 
-export default pending;
+export default Pending;

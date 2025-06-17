@@ -3,7 +3,7 @@ import React from 'react';
 import ContexData from '../AuthContext/ContexData';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://studysync-server-kappa.vercel.app',
 });
 
 const UseAxioxSecure = () => {
@@ -15,7 +15,6 @@ const UseAxioxSecure = () => {
         config.headers.authorization = `Bearer ${userData?.accessToken}`
         return config
     })
-      console.log(userData.accessToken);
     // For Response
 
     axiosInstance.interceptors.response.use(

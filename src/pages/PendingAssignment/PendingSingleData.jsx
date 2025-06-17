@@ -28,7 +28,7 @@ const PendingSingleData = ({ assignmentData, assignmentDatas, setAssignmentDatas
             feedback,
             status: "completed"
         }
-        axios.patch(`http://localhost:5000/submitions/${id}`, newData)
+        axios.patch(`https://studysync-server-kappa.vercel.app/submitions/${id}`, newData)
             .then(data => {
                 if (data.data.modifiedCount) {
                     Swal.fire({

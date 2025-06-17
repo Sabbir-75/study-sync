@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import ContexData from '../../Hooks/AuthContext/ContexData';
+import { Helmet } from 'react-helmet';
 const CreateAssignment = () => {
 
     const [selectedDate, setSelectedDate] = useState(new Date);
@@ -24,7 +25,11 @@ const CreateAssignment = () => {
         }
         console.log(allAssignData);
 
-        axios.post("http://localhost:5000/assignments", allAssignData)
+        axios.post("https://studysync-server-kappa.vercel.app/assignments", allAssignData, {
+            headers: {
+                authorization: `Bearer ${userData?.accessToken}`
+            }
+        })
             .then(data => {
                 console.log(data.data);
                 if (data.data.insertedId) {
@@ -43,6 +48,9 @@ const CreateAssignment = () => {
 
     return (
         <form onSubmit={assignmentHandler} className='max-w-[800px] mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+            <Helmet>
+                <title>StudySync || CreateAssignment</title>
+            </Helmet>
             <div className='flex justify-center items-center gap-5'>
                 <Lottie style={{ width: "30px" }} animationData={createLottie} loop={true}></Lottie>
                 <h1 className='text-center text-3xl font-bold py-6'>Create Your Assignment</h1>

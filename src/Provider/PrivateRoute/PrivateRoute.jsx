@@ -8,7 +8,8 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
 
     if (loading) {
-        return <Blocks
+        return <div className='flex justify-center'>
+            <Blocks
             height="80"
             width="80"
             color="#4fa94d"
@@ -17,6 +18,7 @@ const PrivateRoute = ({ children }) => {
             wrapperClass="blocks-wrapper"
             visible={true}
         />
+        </div>
     }
     if(!userData){
         return <Navigate state={location.pathname} to={"/login"}></Navigate>

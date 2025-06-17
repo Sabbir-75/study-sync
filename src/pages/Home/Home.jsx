@@ -1,5 +1,5 @@
 
-import React, { use } from 'react';
+import React, { use, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -15,14 +15,28 @@ import { BiLogIn } from 'react-icons/bi';
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import Lottie from 'lottie-react';
 import FeaturesSection from '../../Components/Feature/Feature';
+import { Helmet } from 'react-helmet';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const response = fetch("/banner.json").then(res => res.json())
 const Home = () => {
     const bannerData = use(response)
     const { userData } = ContexData()
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true, // animation happens only once
+        });
+    }, []);
+
     return (
 
         <div className='max-w-[1250px] mx-auto'>
+            <Helmet>
+                <title>StudySync || Home</title>
+            </Helmet>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -76,7 +90,7 @@ const Home = () => {
                                         transition={{ duration: 0.6, ease: "easeOut" }}
                                         className='text-center text-base-content my-2 md:mt-4 text-base md:text-xl lg:text-2xl'>{data.sub_title}</motion.h1>
                                     <div className='flex gap-3 justify-center'>
-                                        <Link to={"/register"} className="rounded px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-neutral relative hover:bg-gradient-to-r hover:from-neutral hover:to-neutral text-neutral-content hover:ring-2 hover:ring-offset-2 hover:ring-neutral transition-all ease-out duration-300">
+                                        <Link to={"/assignments"} className="rounded px-2 md:px-3 lg:px-5 py-2.5 overflow-hidden group bg-neutral relative hover:bg-gradient-to-r hover:from-neutral hover:to-neutral text-neutral-content hover:ring-2 hover:ring-offset-2 hover:ring-neutral transition-all ease-out duration-300">
                                             <span className="relative text-sm md:text-base">{data.button1}</span>
                                         </Link>
                                         {
@@ -95,7 +109,7 @@ const Home = () => {
                         </SwiperSlide>)
                 }
             </Swiper>
-            <div className='max-w-[800px] mx-auto mt-10 '>
+            <div  data-aos="fade-up" className='max-w-[800px] mx-auto mt-10 '>
                 <div className='flex justify-center mb-4 md:mb-10 items-center gap-3'>
                     <Lottie style={{ width: "40px" }} animationData={question} loop={true}></Lottie>
                     <h1 className='text-center text-xl md:text-3xl lg:text-4xl font-bold'>Frequently Asked <span className='text-neutral'>Questions</span></h1>

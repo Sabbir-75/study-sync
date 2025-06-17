@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import loginAnimation from "../../assets/login.json"
 import ContexData from '../../Hooks/AuthContext/ContexData';
 import { Bounce, toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const { loginAccount, googleLogin } = ContexData()
@@ -78,9 +79,9 @@ const Login = () => {
     }
     return (
         <div className="hero px-6 flex flex-col md:flex-row justify-center">
-            {/* <Helmet>
-                <title>Roommate Hunt || Login</title>
-            </Helmet> */}
+           <Helmet>
+                <title>StudySync || Login</title>
+            </Helmet>
             <div className="card bg-base-100 w-full border-base-300 border-b-[2px] border-t-[2px] shadow-sm max-w-sm shrink-0">
                 <div className="card-body">
                     <h1 className="text-5xl font-bold text-center mb-5">Login now!</h1>

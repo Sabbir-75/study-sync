@@ -3,6 +3,7 @@ import PendingSingleData from './PendingSingleData';
 
 const PendingAssignment = ({ pendingResDatas }) => {
     const data = use(pendingResDatas)
+
     const [assignmentDatas, setAssignmentDatas] = useState([])
     useEffect(() => {
         const remainingData = data.filter(singleData => singleData.status === "pending")
