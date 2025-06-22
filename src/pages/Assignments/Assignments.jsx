@@ -51,7 +51,7 @@ const Assignments = () => {
                                 }
                             })
                             .catch((error) => {
-                                console.log(error.message);
+                               
                             })
                     }
                 });

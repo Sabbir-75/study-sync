@@ -62,6 +62,8 @@ const Login = () => {
                     transition: Bounce
                 });
                 navigate(location.state || "/")
+              
+              
             })
             .catch((error) => {
                 toast.error(`${error.code}`, {

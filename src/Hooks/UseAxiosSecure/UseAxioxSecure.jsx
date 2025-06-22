@@ -8,11 +8,11 @@ const axiosInstance = axios.create({
 
 const UseAxioxSecure = () => {
 
-    const { userData, logout } = ContexData()
+    const { logout, token } = ContexData()
 
     // for Request 
     axiosInstance.interceptors.request.use(config => {
-        config.headers.authorization = `Bearer ${userData?.accessToken}`
+        config.headers.authorization = `Bearer ${token}`
         return config
     })
     // For Response

@@ -45,7 +45,7 @@ const View = () => {
             obtained: "",
             feedback: ""
         }
-        console.log(sumittedData);
+       
         axios.post("https://studysync-server-kappa.vercel.app/submitions", sumittedData)
             .then(data => {
                 if (data.data.insertedId) {
@@ -60,7 +60,7 @@ const View = () => {
                 }
             })
             .catch(error => {
-                console.log(error.message);
+                
             })
 
     }

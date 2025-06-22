@@ -12,7 +12,7 @@ import { CgProfile } from 'react-icons/cg';
 const Navbar = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    const { userData, logout, setThemeChanger } = ContexData()
+    const { userData, logout, setThemeChanger, setToken, setUserData } = ContexData()
     const nav = <>
         <li className='text-white hover:text-neutral duration-150'><NavLink to={"/"}>Home</NavLink></li>
         <li className='text-white hover:text-neutral duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
@@ -62,8 +62,8 @@ const Navbar = () => {
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme)
         localStorage.setItem("theme", theme)
-         setThemeChanger(theme)
-    }, [theme,setThemeChanger])
+        setThemeChanger(theme)
+    }, [theme, setThemeChanger])
 
     const handleToggle = (e) => {
         setTheme(e.target.checked ? "dark" : "forest")

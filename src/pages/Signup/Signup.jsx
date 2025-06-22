@@ -39,7 +39,7 @@ const Signup = () => {
 
         createAccount(email, password)
             .then((result) => {
-                console.log(result.user);
+              
                 if (result.user) {
                     const profile = {
                         displayName: name,

@@ -23,7 +23,7 @@ const CreateAssignment = () => {
             ...assignmentData,
             due_date
         }
-        console.log(allAssignData);
+        
 
         axios.post("https://studysync-server-kappa.vercel.app/assignments", allAssignData, {
             headers: {
@@ -31,7 +31,7 @@ const CreateAssignment = () => {
             }
         })
             .then(data => {
-                console.log(data.data);
+               
                 if (data.data.insertedId) {
                     Swal.fire({
                         icon: "success",
@@ -42,7 +42,7 @@ const CreateAssignment = () => {
                 }
             })
             .catch((error) => {
-                console.log(error.message);
+             
             })
     }
 
