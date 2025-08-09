@@ -16,7 +16,7 @@ const Navbar = () => {
         <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/"}>Home</NavLink></li>
         <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
         {
-            userData && <li className='text-white hover:text-primary duration-150'><NavLink to={"/pending"}>Pending Assignments</NavLink></li>
+            userData && <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/pending"}>Pending Assignments</NavLink></li>
         }
         <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/aboutus"}>About Us</NavLink></li>
     </>

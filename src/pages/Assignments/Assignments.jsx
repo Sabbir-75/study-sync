@@ -7,6 +7,7 @@ import ContexData from '../../Hooks/AuthContext/ContexData';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { Blocks } from 'react-loader-spinner';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -51,7 +52,7 @@ const Assignments = () => {
                                 }
                             })
                             .catch((error) => {
-                               
+
                             })
                     }
                 });
@@ -66,7 +67,7 @@ const Assignments = () => {
                 });
             }
         }
-        else{
+        else {
             navigate("/login")
         }
     }
@@ -112,11 +113,11 @@ const Assignments = () => {
     }
     return (
 
-        <div data-aos="fade-up" className='max-w-7xl mx-auto px-4 py-12'>
+        <div className='max-w-7xl mx-auto px-4 py-12'>
             <Helmet>
                 <title>StudySync || Assignments</title>
             </Helmet>
-            <div className="max-w-[400px] mx-auto flex gap-4 mb-4">
+            <div className="max-w-[400px] text-base-content mx-auto flex gap-4 mb-4">
                 {/* Search Input */}
                 <input
                     type="text"
@@ -138,29 +139,47 @@ const Assignments = () => {
             </div>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                {
-                    assignAllData.map(data => <div key={data._id} className="p-4 shadow-md bg-base-100 dark:text-gray-800">
-                        <div className="space-y-4">
-                            <div className="space-y-2">
-                                <img src={data.thumbnail_URL} alt={data.thumbnail_URL} className="block object-cover object-center w-full rounded-md h-50 dark:bg-gray-500" />
-                            </div>
-                            <div className="space-y-2 mb-7">
-                                <h3 className="text-2xl font-semibold text-base-content">{data.title}</h3>
-                                <p className="leading-snug flex gap-2 items-center text-base-content font-medium mt-3"><SiLevelsdotfyi />Difficulty level : <span className={`font-bold ${data.difficulty_level === "Medium" && "text-yellow-400"} ${data.difficulty_level === "Hard" ? "text-red-600" : "text-green-600"}`}>{data.difficulty_level}</span></p>
-                                <p className="leading-snug flex gap-2 items-center text-base-content font-medium"><FaBullseye />Marks : {data.marks}</p>
-                            </div>
-                            <div className='flex justify-center gap-4'>
-                                <button onClick={() => viewHandler(data._id)} className='px-4 py-1 rounded-sm text-white hover:bg-blue-600 bg-blue-500'>View</button>
-                                <button onClick={() => updateHandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
-                                <button onClick={() => deleteHaandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'>Delete</button>
+            {
 
-                            </div>
-                        </div>
-                    </div>)
-                }
 
-            </div>
+                (assignAllData.length > 0) ?
+                    <div className='max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                        {
+                            assignAllData.map(data => <div data-aos="fade-up" key={data._id} className="p-4 shadow-md bg-base-100 dark:text-gray-800">
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <img src={data.thumbnail_URL} alt={data.thumbnail_URL} className="block object-cover object-center w-full rounded-md h-50 dark:bg-gray-500" />
+                                    </div>
+                                    <div className="space-y-2 mb-7">
+                                        <h3 className="text-2xl font-semibold text-base-content">{data.title}</h3>
+                                        <p className="leading-snug flex gap-2 items-center text-base-content font-medium mt-3"><SiLevelsdotfyi />Difficulty level : <span className={`font-bold ${data.difficulty_level === "Medium" && "text-yellow-400"} ${data.difficulty_level === "Hard" ? "text-red-600" : "text-green-600"}`}>{data.difficulty_level}</span></p>
+                                        <p className="leading-snug flex gap-2 items-center text-base-content font-medium"><FaBullseye />Marks : {data.marks}</p>
+                                    </div>
+                                    <div className='flex justify-center gap-4'>
+                                        <button onClick={() => viewHandler(data._id)} className='px-4 py-1 rounded-sm text-white hover:bg-blue-600 bg-blue-500'>View</button>
+                                        <button onClick={() => updateHandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
+                                        <button onClick={() => deleteHaandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'>Delete</button>
+
+                                    </div>
+                                </div>
+                            </div>)
+                        }
+
+                    </div>
+                    :
+                    <div className='flex justify-center mt-28'>
+                        <Blocks
+                            height="80"
+                            width="80"
+                            color="#4fa94d"
+                            ariaLabel="blocks-loading"
+                            wrapperStyle={{}}
+                            wrapperClass="blocks-wrapper"
+                            visible={true}
+                        />
+                    </div>
+            }
+
         </div>
 
     );

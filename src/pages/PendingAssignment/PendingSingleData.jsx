@@ -47,8 +47,8 @@ const PendingSingleData = ({ assignmentData, assignmentDatas, setAssignmentDatas
             <div className="space-y-4">
                 <div className="space-y-2 mb-7">
                     <h3 className="text-2xl font-semibold text-base-content">{assignmentData.assignmentTitle}</h3>
-                    <p className="leading-snug flex gap-2 items-center text-primary-200 font-medium"><FaBullseye />Marks : {assignmentData.assignmentMarks}</p>
-                    <p className="leading-snug flex gap-2 items-center text-primary-200 font-medium"><IoMdPersonAdd />Examinee nName : <span className='text-cyan-500'>{assignmentData.name}</span></p>
+                    <p className="leading-snug flex gap-2 items-center text-base-content font-medium"><FaBullseye className='text-base-content' />Marks : {assignmentData.assignmentMarks}</p>
+                    <p className="leading-snug flex gap-2 items-center text-base-content font-medium"><IoMdPersonAdd className='text-base-content' />Examine Name : <span className='text-cyan-500'>{assignmentData.name}</span></p>
                 </div>
                 <div className='flex justify-center gap-4 w-full'>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
