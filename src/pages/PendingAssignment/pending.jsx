@@ -12,7 +12,7 @@ const Pending = () => {
             <Helmet>
                 <title>StudySync || Pending</title>
             </Helmet>
-            <h1 className='text-center text-4xl font-bold text-base-content'>Pending <span className='text-neutral'>Assignments</span></h1>
+            <h1 className='text-center text-4xl font-bold text-base-content'>Pending <span className='text-primary'>Assignments</span></h1>
             <Suspense fallback={<div className='flex justify-center'>
                 <Blocks
                     height="80"

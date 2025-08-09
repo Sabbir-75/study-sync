@@ -4,9 +4,10 @@
 
 /* for Default forest theme */
 
-  * {
+* {
   font-family: 'Ubuntu', sans-serif;
 }
+
 
 
 @plugin "daisyui/theme" {
@@ -14,18 +15,68 @@
   default: false;
   prefersdark: false;
   color-scheme: "light";
+  --color-base-100: oklch(0.9769 0.010856 274.8971);
+  --color-base-200: oklch(0.9518 0.0231 277.96);
+  --color-base-300: oklch(86% 0 0);
+  --color-base-content: oklch(27.807% 0.029 256.847);
+  --color-primary: oklch(0.536 0.2574 280.6);
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(53.92% 0.162 241.36);
+  --color-secondary-content: oklch(90.784% 0.032 241.36);
+  --color-accent: oklch(75.98% 0.204 56.72);
+  --color-accent-content: oklch(15.196% 0.04 56.72);
+  --color-neutral: oklch(75% 0.183 55.934);
+  --color-neutral-content: oklch(26% 0.079 36.259);
+  --color-info: oklch(72.06% 0.191 231.6);
+  --color-info-content: oklch(0% 0 0);
+  --color-success: oklch(64.8% 0.15 160);
+  --color-success-content: oklch(0% 0 0);
+}
+
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(0.16 0.03 266.63);
+  --color-base-200: oklch(0.1084 0.0427 266.63);
+  --color-base-300: oklch(0.7043 0.1561 143.7);
+   --color-base-content: oklch(1 0 0);
+  --color-primary: oklch(0.536 0.2574 280.6);
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(53.92% 0.162 241.36);
+  --color-secondary-content: oklch(90.784% 0.032 241.36);
+  --color-accent: oklch(75.98% 0.204 56.72);
+  --color-accent-content: oklch(15.196% 0.04 56.72);
+  --color-neutral: oklch(75% 0.183 55.934);
+  --color-neutral-content: oklch(26% 0.079 36.259);
+  --color-info: oklch(72.06% 0.191 231.6);
+  --color-info-content: oklch(0% 0 0);
+  --color-success: oklch(64.8% 0.15 160);
+  --color-success-content: oklch(0% 0 0);
+}
+
+
+/* for dark theme */
+
+/* @plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
   --color-base-100: oklch(0.16 0.03 266.63);
   --color-base-200: oklch(0.1084 0.0427 266.63);
   --color-base-300: oklch(0.7043 0.1561 143.7);
   --color-base-content: oklch(1 0 0);
-  --color-primary: oklch(85% 0.138 181.071);
-  --color-primary-content: oklch(27% 0.046 192.524);
+  --color-primary: oklch(0.8813 0.2154 152.98);
+  --color-primary-content: oklch(0.3 0.15 322);
   --color-secondary: oklch(0% 0 0);
   --color-secondary-content: oklch(100% 0 0);
   --color-accent: oklch(0.5 0.3 322.5);
   --color-accent-content: oklch(28% 0.141 291.089);
-  --color-neutral: oklch(0.8813 0.2154 152.98);
-  --color-neutral-content: oklch(0.3 0.15 322);
+  --color-neutral: oklch(85% 0.138 181.071);
+  --color-neutral-content: oklch(27% 0.046 192.524);
   --color-info: oklch(54% 0.245 262.881);
   --color-info-content: oklch(97% 0.014 254.604);
   --color-success: oklch(62% 0.194 149.214);
@@ -42,50 +93,4 @@
   --border: 1px;
   --depth: 0;
   --noise: 1;
-}
-
-
-
-/* for dark theme */
-
-
-@plugin "daisyui/theme" {
-  name: "dark";
-  default: false;
-  prefersdark: false;
-  color-scheme: "dark";
-  --color-base-100: oklch(14% 0.004 49.25);
-  --color-base-200: oklch(21% 0.006 56.043);
-  --color-base-300: oklch(26% 0.007 34.298);
-  --color-base-content: oklch(97% 0.001 106.424);
-  --color-primary: oklch(75% 0.183 55.934);
-  --color-primary-content: oklch(26% 0.079 36.259);
-  --color-secondary: oklch(70% 0.022 261.325);
-  --color-secondary-content: oklch(13% 0.028 261.692);
-  --color-accent: oklch(71% 0.203 305.504);
-  --color-accent-content: oklch(29% 0.149 302.717);
-  --color-neutral: oklch(44% 0.011 73.639);
-  --color-neutral-content: oklch(98% 0.001 106.423);
-  --color-info: oklch(62% 0.214 259.815);
-  --color-info-content: oklch(97% 0.014 254.604);
-  --color-success: oklch(72% 0.219 149.579);
-  --color-success-content: oklch(98% 0.018 155.826);
-  --color-warning: oklch(70% 0.213 47.604);
-  --color-warning-content: oklch(98% 0.016 73.684);
-  --color-error: oklch(63% 0.237 25.331);
-  --color-error-content: oklch(97% 0.013 17.38);
-  --radius-selector: 0.5rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 0;
-  --noise: 1;
-}
-
-
-
-
-
-
+} */

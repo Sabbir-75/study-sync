@@ -5,7 +5,7 @@ const FeaturesSection = () => {
     const features = use(respon)
     return (
         <section data-aos="fade-up" className="max-w-6xl mx-auto px-4 py-12">
-            <h1 className='text-center mb-4 md:mb-10 text-xl md:text-3xl lg:text-4xl font-bold'>Awesome Features <span className='text-neutral'>of StudySync</span></h1>
+            <h1 className='text-center mb-4 md:mb-10 text-base-content text-xl md:text-3xl lg:text-4xl font-bold'>Awesome Features <span className='text-primary'>of StudySync</span></h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map(({ id, thumbnail, title, description }) => (
@@ -22,7 +22,7 @@ const FeaturesSection = () => {
                         <p className="text-gray-600 text-start">{description}</p>
 
                         <div className="hidden absolute group-hover:block py-2 transform opacity-0 group-hover:top-[50%] group-hover:left-[33%] group-hover:opacity-100">
-                            <button className="text-sm btn btn-neutral text-neutral-content">
+                            <button className="text-sm btn btn-primary text-primary-content">
                                 View More
                             </button>
                         </div>

@@ -102,7 +102,7 @@ const Login = () => {
                         <label className="label">Password</label>
                         <input type="password" name='password' className="input w-full" placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button type='submit' className="btn text-base font-bold text-neutral-content bg-neutral mt-4">Login</button>
+                        <button type='submit' className="btn text-base font-bold text-primary-content bg-primary mt-4">Login</button>
                         <p className="text-sm text-center text-gray-400">Don't have account ?
                             <Link to={"/signup"} rel="noopener noreferrer" className="text-blue-600 focus:underline hover:underline"> Sign up here</Link>
                         </p>

@@ -138,7 +138,7 @@ const Signup = () => {
                         <input require type="text" name='photo' className="input" placeholder="Enter Your PhotoURL " />
                         <label className="label">Password </label>
                         <input require type="password" name='password' className="input" placeholder="Enter Your Password" />
-                        <button type='submit' className="btn text-base font-bold text-neutral-content bg-neutral mt-4">Signup</button>
+                        <button type='submit' className="btn text-base font-bold text-primary-content bg-primary mt-4">Signup</button>
                         <p className="text-sm text-center dark:text-gray-400">Already have an account ?
                             <Link to={"/login"} rel="noopener noreferrer" className="text-blue-600 focus:underline hover:underline"> Login</Link>
                         </p>

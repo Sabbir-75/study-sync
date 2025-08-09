@@ -9,7 +9,7 @@ const AssignmenysTable = ({ assignmentAttempedRespons }) => {
             <table className="table ">
                 {/* head */}
                 <thead>
-                    <tr className='bg-neutral text-black font-bold'>
+                    <tr className='bg-primary text-black font-bold'>
                         <th>NO</th>
                         <th>TITLE</th>
                         <th>Status</th>

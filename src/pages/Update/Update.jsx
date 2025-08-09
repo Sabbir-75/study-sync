@@ -114,7 +114,7 @@ const Update = () => {
                 </fieldset>
 
             </div>
-            <button className="btn w-full btn-neutral mt-4">Update</button>
+            <button className="btn w-full btn-primary mt-4">Update</button>
         </form>
     );
 };

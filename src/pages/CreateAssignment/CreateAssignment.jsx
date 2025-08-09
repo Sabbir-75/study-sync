@@ -107,7 +107,7 @@ const CreateAssignment = () => {
                 </fieldset>
 
             </div>
-            <button className="btn w-full btn-neutral mt-4">Add Assignment</button>
+            <button className="btn w-full btn-primary mt-4">Add Assignment</button>
         </form>
     );
 };

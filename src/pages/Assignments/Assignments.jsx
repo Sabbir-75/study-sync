@@ -121,13 +121,13 @@ const Assignments = () => {
                 <input
                     type="text"
                     placeholder="Search by title"
-                    className="input input-bordered border border-neutral"
+                    className="input input-bordered border border-primary"
                     onChange={(e) => setSearch(e.target.value)}
                 />
 
                 {/* Difficulty Filter */}
                 <select
-                    className="select select-bordered border border-neutral"
+                    className="select select-bordered border border-primary"
                     onChange={(e) => setDifficulty(e.target.value)}
                 >
                     <option value="">All</option>
@@ -147,8 +147,8 @@ const Assignments = () => {
                             </div>
                             <div className="space-y-2 mb-7">
                                 <h3 className="text-2xl font-semibold text-base-content">{data.title}</h3>
-                                <p className="leading-snug flex gap-2 items-center text-neutral-200 font-medium mt-3"><SiLevelsdotfyi />Difficulty level : <span className={`font-bold ${data.difficulty_level === "Medium" && "text-yellow-400"} ${data.difficulty_level === "Hard" ? "text-red-600" : "text-green-600"}`}>{data.difficulty_level}</span></p>
-                                <p className="leading-snug flex gap-2 items-center text-neutral-200 font-medium"><FaBullseye />Marks : {data.marks}</p>
+                                <p className="leading-snug flex gap-2 items-center text-base-content font-medium mt-3"><SiLevelsdotfyi />Difficulty level : <span className={`font-bold ${data.difficulty_level === "Medium" && "text-yellow-400"} ${data.difficulty_level === "Hard" ? "text-red-600" : "text-green-600"}`}>{data.difficulty_level}</span></p>
+                                <p className="leading-snug flex gap-2 items-center text-base-content font-medium"><FaBullseye />Marks : {data.marks}</p>
                             </div>
                             <div className='flex justify-center gap-4'>
                                 <button onClick={() => viewHandler(data._id)} className='px-4 py-1 rounded-sm text-white hover:bg-blue-600 bg-blue-500'>View</button>

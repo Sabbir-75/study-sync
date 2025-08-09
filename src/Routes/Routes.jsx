@@ -11,6 +11,7 @@ import Update from "../pages/Update/Update";
 import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import Pending from "../pages/PendingAssignment/pending";
 import Error from "../pages/Error/Error";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 
 
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([{
         {
             path: "/assignments",
             Component: Assignments
+        },
+        {
+            path: "/aboutus",
+            Component: AboutUs
         },
         {
             path: "/createassignment",
