@@ -10,11 +10,11 @@ const MyAssignments = () => {
     const {assignmentAttempedRespons} = MyAttemptedAssign()
     const {userData} = ContexData()
     return (
-        <div className='max-w-[1200px] mx-auto'>
+        <div className='max-w-[1200px] mx-auto text-base-content'>
             <Helmet>
                 <title>StudySync || MyAssignments</title>
             </Helmet>
-            <h1 className='text-4xl font-bold text-center  mb-10 text-base-content'>My Attempted <span className='text-primary'>Assignments</span></h1>
+            <h1 className='text-4xl font-bold text-center  mb-10'>My Attempted <span className='text-primary'>Assignments</span></h1>
              <Suspense fallback={<div className='flex justify-center'>
                 <Blocks
                             height="80"

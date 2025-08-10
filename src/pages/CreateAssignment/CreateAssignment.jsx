@@ -47,7 +47,7 @@ const CreateAssignment = () => {
     }
 
     return (
-        <form onSubmit={assignmentHandler} className='max-w-[800px] mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+        <form onSubmit={assignmentHandler} className='max-w-[800px] text-base-content mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
             <Helmet>
                 <title>StudySync || CreateAssignment</title>
             </Helmet>
@@ -86,7 +86,7 @@ const CreateAssignment = () => {
                     <label className="label">Due Date</label>
                     <div className="w-full flex justify-start border rounded-lg border-amber-50">
                         <DatePicker
-                            className=" py-3 border-none focus:outline-none pl-3 px-2 text-base-content font-medium w-full"
+                            className=" py-3 border-none focus:outline-none pl-3 px-2 -text-basecontent font-medium w-full"
                             selected={selectedDate}
                             onChange={(date) => setSelectedDate(date)}
                         />
@@ -96,7 +96,7 @@ const CreateAssignment = () => {
 
 
                 <fieldset className="fieldset space-y-1 rounded-box p-4">
-                    <label className="font-medium text-lg text-base-300 text-center">Creator info</label>
+                    <label className="font-medium text-lg text-secondary text-center">Creator info</label>
 
                     <label className="label">Email</label>
                     <input type="email" name='hr_email' value={userData?.email} className="input w-full" />

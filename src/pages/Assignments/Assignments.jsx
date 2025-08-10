@@ -145,7 +145,7 @@ const Assignments = () => {
                 (assignAllData.length > 0) ?
                     <div className='max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                         {
-                            assignAllData.map(data => <div data-aos="fade-up" key={data._id} className="p-4 shadow-md bg-base-100 dark:text-gray-800">
+                            assignAllData.map(data => <div data-aos="fade-up" key={data._id} className="p-4 shadow-md rounded-2xl bg-base-100 dark:text-gray-800">
                                 <div className="space-y-4">
                                     <div className="space-y-2">
                                         <img src={data.thumbnail_URL} alt={data.thumbnail_URL} className="block object-cover object-center w-full rounded-md h-50 dark:bg-gray-500" />

@@ -43,7 +43,7 @@ const PendingSingleData = ({ assignmentData, assignmentDatas, setAssignmentDatas
             })
     }
     return (
-        <div className="p-4 shadow-md bg-base-100">
+        <div className="p-4 shadow-md rounded-2xl bg-base-100">
             <div className="space-y-4">
                 <div className="space-y-2 mb-7">
                     <h3 className="text-2xl font-semibold text-base-content">{assignmentData.assignmentTitle}</h3>
