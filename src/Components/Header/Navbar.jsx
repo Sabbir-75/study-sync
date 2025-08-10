@@ -12,6 +12,23 @@ const Navbar = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const { userData, logout } = ContexData()
+    const [isFixed, setIsFixed] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const navbarHeight = document.getElementById("navbarId").offsetHeight;
+            if (window.scrollY > navbarHeight) {
+                setIsFixed(true);
+            } else {
+                setIsFixed(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     const nav = <>
         <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/"}>Home</NavLink></li>
         <li className='text-base-content hover:text-primary duration-150'><NavLink to={"/assignments"}>Assignments</NavLink></li>
@@ -69,7 +86,13 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar bg-base-100 border-b-[1px] border-primary shadow-sm">
+        <div id="navbarId" className={`navbar bg-base-100 border-b-[1px] border-primary shadow-sm z-50 transition-all duration-500 ease-in-out sticky ${
+        isFixed
+          ? 'fixed top-0 left-0 right-0 z-50 translate-y-0'
+          : 'relative -top-30'
+      }
+        `}>
+
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -108,8 +131,8 @@ const Navbar = () => {
                                     <img className='cursor-pointer w-[35px] h-[35px] flex items-center rounded-full object-cover' src={userData?.photoURL} />
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-primary text-primary-content rounded-box z-1 w-40 p-2 shadow-sm">
-                                    <li className='text-primary-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
-                                    <li className='text-primary-content hover:bg-base-300 rounded-box duration-150'><NavLink to={"/myassignments"}> My Assignments</NavLink></li>
+                                    <li className='text-primary-content hover:text-base-content hover:bg-base-100 rounded-box duration-150'><NavLink to={"/createassignment"}>+ Add Assignment</NavLink></li>
+                                    <li className='text-primary-content hover:text-base-content hover:bg-base-100 rounded-box duration-150'><NavLink to={"/myassignments"}> My Assignments</NavLink></li>
                                 </ul>
                             </div>
 
@@ -119,7 +142,7 @@ const Navbar = () => {
                     }
                     {
                         userData && <div className="absolute top-0 opacity-0 group-hover:opacity-100 duration-300">
-                            <p className="text-base-300 text-[12px] font-medium">{userData?.displayName}</p>
+                            <p className="text-primary text-[12px] font-medium">{userData?.displayName}</p>
                         </div>
                     }
                 </div>
