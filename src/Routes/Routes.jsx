@@ -12,6 +12,7 @@ import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import Pending from "../pages/PendingAssignment/pending";
 import Error from "../pages/Error/Error";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import FeatureDetail from "../pages/FetureDetails/FetureDetails";
 
 
 
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([{
             path: "/update/:id",
             loader: ({ params }) => fetch(`https://studysync-server-kappa.vercel.app/assignment/${params.id}`),
             element: <PrivateRoute><Update></Update></PrivateRoute>
+        },
+        {
+            path: "/feture/:id",
+            loader: () => fetch(`feture.json`),
+            element: <PrivateRoute><FeatureDetail></FeatureDetail></PrivateRoute>
         },
         {
             path: "/myassignments",
