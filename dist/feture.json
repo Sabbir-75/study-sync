@@ -1,38 +1,83 @@
+
 [
   {
     "id": 1,
     "thumbnail": "https://i.ibb.co/27JcX2NZ/360-F-603239501-8-Hb-TZsq-ORNHxgoh-Tg-LKFs-Wo-Dfs-VE0h-AR.jpg",
     "title": "Group Study Collaboration",
-    "description": "Create or join study groups to collaborate and work together on assignments and learning activities."
+    "description": "Create or join study groups to collaborate and work together on assignments and learning activities.",
+    "groupType": "Private or Public groups",
+    "schedule": "Group study session calendar",
+    "roles": "Moderator, Note-taker assignment",
+    "liveCalls": "Audio and video calls",
+    "polls": "Create polls to gather group opinions",
+    "fileSharing": "Share documents within group",
+    "activityFeed": "View recent group activities"
   },
   {
     "id": 2,
     "thumbnail": "https://i.ibb.co/BKK2K2P4/360-F-255226859-Rhqr5hflr2es-VXHQE1s-S1b-Wxm-Zxs0g-WI.jpg",
     "title": "Assignment Management",
-    "description": "Easily create, assign, and submit assignments within your group with deadlines and progress tracking."
+    "description": "Easily create, assign, and submit assignments within your group with deadlines and progress tracking.",
+    "deadlines": "Set due dates with reminders",
+    "fileUpload": "Support multiple file types",
+    "peerReview": "Review and feedback system",
+    "grading": "Grade and comment on submissions",
+    "submissionHistory": "Track past submissions",
+    "autoSave": "Auto-save drafts of assignments",
+    "calendarIntegration": "Sync deadlines with calendar"
   },
   {
     "id": 3,
     "thumbnail": "https://i.ibb.co/yFSbHXbz/a-storyblok.webp",
     "title": "Real-time Messaging",
-    "description": "Communicate with group members instantly using built-in messaging for better collaboration."
+    "description": "Communicate with group members instantly using built-in messaging for better collaboration.",
+    "chatTypes": "One-on-one and group chats",
+    "mediaSharing": "Images, files, and links",
+    "indicators": "Read receipts and typing",
+    "threads": "Organized message threads",
+    "emojiReactions": "React to messages with emojis",
+    "search": "Search messages by keyword",
+    "messagePinning": "Pin important messages"
   },
   {
     "id": 4,
     "thumbnail": "https://i.ibb.co/Pz6b4tCK/G2-CM-FI152-Learn-Article-Images-what-is-a-network-V1a.webp",
     "title": "Resource Sharing",
-    "description": "Share notes, links, videos, and important study materials with your group members."
+    "description": "Share notes, links, videos, and important study materials with your group members.",
+    "upload": "Upload notes and files",
+    "bookmark": "Bookmark important resources",
+    "collabNotes": "Collaborative note-taking",
+    "embedContent": "Embed videos and links",
+    "tags": "Tag resources for easy search",
+    "versionControl": "Track edits on shared notes",
+    "resourceComments": "Comment on shared materials"
   },
   {
     "id": 5,
     "thumbnail": "https://i.ibb.co/Kxk2BTd3/How-to-Track-a-Projects-Progress.webp",
     "title": "Progress Tracking",
-    "description": "Monitor assignment progress and stay updated on what’s completed and what’s pending."
+    "description": "Monitor assignment progress and stay updated on what’s completed and what’s pending.",
+    "dashboard": "Visual progress overview",
+    "reports": "Daily and weekly updates",
+    "goals": "Set personal and group goals",
+    "notifications": "Reminders for pending tasks",
+    "milestones": "Mark key progress milestones",
+    "exportReports": "Export progress reports as PDF",
+    "performanceStats": "View detailed stats and trends"
   },
   {
     "id": 6,
     "thumbnail": "https://i.ibb.co/TBKkwJjF/0-responsive-web-design-hero-image.jpg",
     "title": "Responsive Design",
-    "description": "Access StudySync seamlessly on any device including mobile, tablet, and desktop."
+    "description": "Access StudySync seamlessly on any device including mobile, tablet, and desktop.",
+    "adaptiveLayout": "Optimized for all screens",
+    "fastLoad": "Quick loading times",
+    "touchSupport": "Mobile touch friendly",
+    "darkMode": "Night mode for comfort",
+    "offlineMode": "Access notes and assignments offline",
+    "multiLanguage": "Supports multiple languages",
+    "customThemes": "Choose from different color themes"
   }
 ]
+
+
