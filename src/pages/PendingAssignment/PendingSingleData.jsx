@@ -64,7 +64,7 @@ const PendingSingleData = ({ assignmentData, assignmentDatas, setAssignmentDatas
 
                                 <form
                                     onSubmit={(e) => markHandler(e, assignmentData._id, userData?.email)}
-                                    className='w-full text-gray-200'
+                                    className='w-full text-base-content'
                                 >
                                     <h1 className='px-4 text-sm font-semibold'> Google Docs Link : <span className='text-blue-600'><a href={assignmentData.docLink} target='_blank'>{assignmentData.docLink}</a></span></h1>
                                     <h1 className='px-4 text-sm font-semibold mt-2'> Note : {assignmentData.note}</h1>

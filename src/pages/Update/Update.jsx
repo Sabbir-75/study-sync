@@ -57,7 +57,7 @@ const Update = () => {
 
     return (
 
-        <form data-aos="fade-down" onSubmit={updateHandler} className='max-w-[800px] mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+        <form data-aos="fade-down" onSubmit={updateHandler} className='max-w-[800px] mx-auto text-base-content bg-base-100 rounded-2xl border-t-4 border-base-300'>
             <Helmet>
                 <title>StudySync || Update</title>
             </Helmet>
@@ -103,7 +103,7 @@ const Update = () => {
 
 
                 <fieldset className="fieldset space-y-1 rounded-box p-4">
-                    <label className="font-medium text-center">Creator info</label>
+                    <label className="font-medium text-center text-secondary">Creator info</label>
 
                     <label className="label">Email</label>
                     <input type="email" name='hr_email' value={userData?.email} className="input w-full" />

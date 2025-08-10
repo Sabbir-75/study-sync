@@ -3,9 +3,9 @@ import React from "react";
 const AboutUs = () => {
     return (
         <div className="min-h-screen flex flex-col items-center px-6 py-12 md:py-24">
-            <div className="max-w-7xl w-full bg-white rounded-2xl shadow-lg p-8 md:p-16">
+            <div className="max-w-7xl w-full bg-secondary text-secondary-content rounded-2xl shadow-lg p-8 md:p-16">
                 <h1 className="text-4xl text-base-content font-extrabold mb-6 text-center">
-                    About <span className="text-primary">StudySync</span> 
+                    About StudySync
                 </h1>
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     {/* Image */}

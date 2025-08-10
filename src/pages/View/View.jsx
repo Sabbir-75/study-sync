@@ -76,7 +76,7 @@ const View = () => {
                         <div className="space-y-2">
                             <img src={assignmentData.thumbnail_URL} alt={assignmentData.thumbnail_URL} className="block object-cover object-center w-full rounded-md dark:bg-gray-500" />
                         </div>
-                        <div className="space-y-2 mb-7">
+                        <div className="space-y-2 mb-7 text-base-content">
                             <h3 className="text-2xl font-semibold text-base-content">{assignmentData.title}</h3>
                             <p className="leading-snug flex gap-2 items-center text-primary-200 font-medium">{assignmentData.description}</p>
                             <p className="leading-snug flex gap-2 items-center text-primary-200 font-medium mt-3"><SiLevelsdotfyi />Difficulty level : <span className={`font-bold ${assignmentData.difficulty_level === "Medium" && "text-yellow-400"} ${assignmentData.difficulty_level === "Hard" ? "text-red-600" : "text-green-600"}`}>{assignmentData.difficulty_level}</span></p>
@@ -97,7 +97,7 @@ const View = () => {
                                     <div className="modal-action">
                                         <form
                                             onSubmit={(e) => submissionHandler(e, assignmentData._id, userData?.email)}
-                                            className='w-full text-gray-200'
+                                            className='w-full text-base-content'
                                         >
                                             <fieldset className="fieldset space-y-2 rounded-box p-4">
                                                 <label className="label">Google Docs Link</label>
