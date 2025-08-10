@@ -57,7 +57,7 @@ const Update = () => {
 
     return (
 
-        <form data-aos="fade-down" onSubmit={updateHandler} className='max-w-[800px] mx-auto text-base-content bg-base-100 rounded-2xl border-t-4 border-base-300'>
+        <form data-aos="fade-down" onSubmit={updateHandler} className='max-w-[800px] mx-auto text-base-content bg-base-100 rounded-2xl border-t-4 border-primary'>
             <Helmet>
                 <title>StudySync || Update</title>
             </Helmet>

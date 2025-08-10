@@ -47,7 +47,7 @@ const CreateAssignment = () => {
     }
 
     return (
-        <form onSubmit={assignmentHandler} className='max-w-[800px] text-base-content mx-auto bg-base-100 rounded-2xl border-t-4 border-base-300'>
+        <form onSubmit={assignmentHandler} className='max-w-[800px] text-base-content mx-auto bg-base-100 rounded-2xl border-t-4 border-primary'>
             <Helmet>
                 <title>StudySync || CreateAssignment</title>
             </Helmet>
