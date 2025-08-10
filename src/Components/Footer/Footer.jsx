@@ -96,7 +96,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-base-300">© {new Date().getFullYear()} Room Hunt. All rights reserved by LS Coder.</div>
+            <div className="py-6 text-sm text-center text-secondary">© {new Date().getFullYear()} Room Hunt. All rights reserved by LS Coder.</div>
         </footer>
     );
 };
