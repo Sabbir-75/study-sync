@@ -16,16 +16,10 @@ const FeaturesSection = () => {
                         <img
                             src={thumbnail}
                             alt={title}
-                            className="w-full mx-auto mb-4 object-contain opacity-100 transition-opacity group-hover:opacity-50"
+                            className="w-full mx-auto mb-4 object-contain opacity-100 transition-opacity group-hover:opacity-80"
                         />
                         <h3 className="text-xl text-start font-semibold mb-2">{title}</h3>
                         <p className="text-gray-600 text-start">{description}</p>
-
-                        <div className="hidden absolute group-hover:block py-2 transform opacity-0 group-hover:top-[50%] group-hover:left-[33%] group-hover:opacity-100">
-                            <button className="text-sm btn btn-primary text-primary-content">
-                                View More
-                            </button>
-                        </div>
 
 
                     </div>
