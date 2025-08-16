@@ -22,6 +22,7 @@ import StudyGroupsSection from '../../Components/coursesData/coursesData';
 import TestimonialsSection from '../../Components/TestimonialsSection/TestimonialsSection';
 import StatsSection from '../../Components/StatsSection/StatsSection';
 import CTASection from '../../Components/CTASection/CTASection';
+import BlogSection from '../../Components/BlogSection/BlogSection';
 
 const response = fetch("/banner.json").then(res => res.json())
 const Home = () => {
@@ -157,6 +158,7 @@ const Home = () => {
                 <TestimonialsSection></TestimonialsSection>
                 <StatsSection></StatsSection>
                 <CTASection></CTASection>
+                <BlogSection></BlogSection>
             </div>
         </>
     );
