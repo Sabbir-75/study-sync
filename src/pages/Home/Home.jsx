@@ -129,27 +129,27 @@ const Home = () => {
                         <div className="collapse collapse-arrow join-item">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-base-content font-semibold">Q. What is StudySync?</div>
-                            <div className="collapse-content text-sm bg-secondary">A. StudySync is an online group-study platform where students can collaborate, share study resources, and complete assignments together in a productive environment.</div>
+                            <div className="collapse-content text-sm bg-primary/80">A. StudySync is an online group-study platform where students can collaborate, share study resources, and complete assignments together in a productive environment.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-base-content font-semibold">Q. How can I join a study group?</div>
-                            <div className="collapse-content text-sm bg-secondary">A. After signing up, you can browse available groups or create your own. You can also receive invites from other students to join their group.</div>
+                            <div className="collapse-content text-sm bg-primary/80">A. After signing up, you can browse available groups or create your own. You can also receive invites from other students to join their group.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-base-content font-semibold">Q. Can I submit and manage assignments here?</div>
-                            <div className="collapse-content text-sm bg-secondary">A. Yes! StudySync allows you to create, assign, submit, and track assignments within your study group.</div>
+                            <div className="collapse-content text-sm bg-primary/80">A. Yes! StudySync allows you to create, assign, submit, and track assignments within your study group.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-base-content font-semibold">Q. Can I chat or video call with my group members?</div>
-                            <div className="collapse-content text-sm bg-secondary">A. Yes. StudySync supports group messaging, file sharing, and integration with third-party video call tools for better communication.</div>
+                            <div className="collapse-content text-sm bg-primary/80">A. Yes. StudySync supports group messaging, file sharing, and integration with third-party video call tools for better communication.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-base-content font-semibold">Q. Is StudySync free to use?</div>
-                            <div className="collapse-content text-sm bg-secondary">A. Absolutely. Most core features like joining groups, sharing resources, and submitting assignments are free for all users.</div>
+                            <div className="collapse-content text-sm bg-primary/80">A. Absolutely. Most core features like joining groups, sharing resources, and submitting assignments are free for all users.</div>
                         </div>
                     </div>
                 </div>
