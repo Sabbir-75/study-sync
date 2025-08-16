@@ -129,7 +129,7 @@ const Signup = () => {
                         <p className="px-3 text-base-content">OR</p>
                         <hr className="w-full text-base-content" />
                     </div>
-                    <form onSubmit={SignupHandler} className="fieldset w-full mx-auto">
+                    <form onSubmit={SignupHandler} className="fieldset text-base-content w-full mx-auto">
                         <label className="label">Name</label>
                         <input require type="text" name='name' className="input" placeholder="Enter Your Name" />
                         <label className="label">Email</label>

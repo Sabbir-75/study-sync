@@ -12,7 +12,8 @@ import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
 import Pending from "../pages/PendingAssignment/pending";
 import Error from "../pages/Error/Error";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import FeatureDetail from "../pages/FetureDetails/FetureDetails";
+import FeatureDetail from "../pages/FeatureDetail/FeatureDetail";
+import Groups from "../pages/Groups/Groups";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([{
         {
             path: "/createassignment",
             element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
+        },
+        {
+            path: "join/group/:id",
+            element: <PrivateRoute><Groups></Groups></PrivateRoute>
         },
         {
             path: "/view/:id",

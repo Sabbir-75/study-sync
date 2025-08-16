@@ -18,6 +18,9 @@ import FeaturesSection from '../../Components/Feature/Feature';
 import { Helmet } from 'react-helmet';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import StudyGroupsSection from '../../Components/coursesData/coursesData';
+import TestimonialsSection from '../../Components/TestimonialsSection/TestimonialsSection';
+import StatsSection from '../../Components/StatsSection/StatsSection';
 
 const response = fetch("/banner.json").then(res => res.json())
 const Home = () => {
@@ -149,6 +152,9 @@ const Home = () => {
                     </div>
                 </div>
                 <FeaturesSection></FeaturesSection>
+                <StudyGroupsSection></StudyGroupsSection>
+                <TestimonialsSection></TestimonialsSection>
+                <StatsSection></StatsSection>
             </div>
         </>
     );

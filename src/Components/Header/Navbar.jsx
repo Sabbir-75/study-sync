@@ -86,9 +86,9 @@ const Navbar = () => {
     }
 
     return (
-        <div id="navbarId" className={`navbar bg-base-100 border-b-[1px] border-primary shadow-sm z-50 transition-all duration-500 ease-in-out sticky ${
+        <div id="navbarId" className={`navbar bg-base-100 py-0.5 border-b-[1px] border-primary shadow-sm z-50 transition-all duration-500 ease-in-out sticky ${
         isFixed
-          ? 'fixed top-0 left-0 right-0 z-50 translate-y-0'
+          ? 'fixed top-0 left-0 right-0 backdrop-blur-xl bg-base-100/60 z-50 translate-y-0'
           : 'relative -top-30'
       }
         `}>
@@ -104,7 +104,7 @@ const Navbar = () => {
                         {nav}
                     </ul>
                 </div>
-                <Link className='max-w-[200px]'>
+                <Link className='max-w-[150px]'>
                     <img src={logoDefauilt} alt={logoDefauilt} />
                 </Link>
             </div>

@@ -157,8 +157,13 @@ const Assignments = () => {
                                     </div>
                                     <div className='flex justify-center gap-4'>
                                         <button onClick={() => viewHandler(data._id)} className='px-4 py-1 rounded-sm text-white hover:bg-blue-600 bg-blue-500'>View</button>
-                                        <button onClick={() => updateHandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
-                                        <button onClick={() => deleteHaandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'>Delete</button>
+                                        {
+                                            userData && <>
+                                                <button onClick={() => updateHandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-amber-500 bg-orange-400'>Update</button>
+
+                                                <button onClick={() => deleteHaandler(data._id, data)} className='px-4 py-1 rounded-sm text-white hover:bg-red-600 bg-red-500'>Delete</button>
+                                            </>
+                                        }
 
                                     </div>
                                 </div>

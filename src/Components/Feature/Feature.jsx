@@ -6,7 +6,7 @@ const FeaturesSection = () => {
     const navigate = useNavigate()
     const features = use(respon)
     return (
-        <section data-aos="fade-up" className="max-w-6xl mx-auto px-4 py-12">
+        <section data-aos="fade-up" className="px-4 py-12">
             <h1 className='text-center mb-4 md:mb-10 text-base-content text-xl md:text-3xl lg:text-4xl font-bold'>Awesome Features <span className='text-primary'>of StudySync</span></h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

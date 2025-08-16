@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Math Problem Solving Group",
+    "description": "Join peers to tackle challenging math problems, share tips, and prepare for exams together.",
+    "image": "https://source.unsplash.com/800x400/?math,classroom",
+    "members": ["Alice", "Bob", "Charlie", "David", "Emma"],
+    "sessions": [
+      { "date": "2025-08-18", "topic": "Algebra Practice" },
+      { "date": "2025-08-20", "topic": "Geometry Problems" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Web Development Study Circle",
+    "description": "Collaborate on projects, learn HTML, CSS, JavaScript, and modern frameworks like React.",
+    "image": "https://source.unsplash.com/800x400/?coding,students",
+    "members": ["Eve", "Frank", "Grace", "Hannah", "Ivan"],
+    "sessions": [
+      { "date": "2025-08-19", "topic": "React Basics" },
+      { "date": "2025-08-21", "topic": "Tailwind UI" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Physics & Engineering Forum",
+    "description": "Discuss concepts, solve problems, and explore the latest in physics and engineering.",
+    "image": "https://source.unsplash.com/800x400/?physics,study",
+    "members": ["Jack", "Karen", "Leo", "Mona", "Nina"],
+    "sessions": [
+      { "date": "2025-08-22", "topic": "Mechanics Discussion" },
+      { "date": "2025-08-24", "topic": "Electricity & Magnetism" }
+    ]
+  }
+]
