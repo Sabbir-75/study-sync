@@ -21,6 +21,7 @@ import 'aos/dist/aos.css';
 import StudyGroupsSection from '../../Components/coursesData/coursesData';
 import TestimonialsSection from '../../Components/TestimonialsSection/TestimonialsSection';
 import StatsSection from '../../Components/StatsSection/StatsSection';
+import CTASection from '../../Components/CTASection/CTASection';
 
 const response = fetch("/banner.json").then(res => res.json())
 const Home = () => {
@@ -116,7 +117,7 @@ const Home = () => {
 
             </div>
             <div className='max-w-[1250px] mx-auto'>
-                <div data-aos="fade-up" className='max-w-[1000px] mx-auto mt-10'>
+                <div data-aos="fade-up" className='max-w-[1000px] mx-auto px-4 mt-6 py-12'>
                     <div className='flex justify-center mb-4 md:mb-10 items-center gap-3'>
                         <Lottie style={{ width: "40px" }} animationData={question} loop={true}></Lottie>
                         <h1 className='text-center text-base-content text-xl md:text-3xl lg:text-4xl font-bold'>Frequently Asked <span className='text-primary'>Questions</span></h1>
@@ -155,6 +156,7 @@ const Home = () => {
                 <StudyGroupsSection></StudyGroupsSection>
                 <TestimonialsSection></TestimonialsSection>
                 <StatsSection></StatsSection>
+                <CTASection></CTASection>
             </div>
         </>
     );

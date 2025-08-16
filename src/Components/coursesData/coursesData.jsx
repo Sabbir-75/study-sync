@@ -46,8 +46,8 @@ export default function StudyGroupsSection() {
         <section data-aos="fade-up" className="px-4 py-12">
                 {/* Section Title */}
                 <div className="text-center mb-12">
-                    <h1 className='text-center mb-4 md:mb-10 text-base-content text-xl md:text-3xl lg:text-4xl font-bold'>Active Study <span className='text-primary'>Groups</span></h1>
-                    <p className="mt-2 text-base-content text-base max-w-2xl mx-auto">
+                    <h1 className='text-center mb-2 md:mb-3 text-base-content text-xl md:text-3xl lg:text-4xl font-bold'>Active Study <span className='text-primary'>Groups</span></h1>
+                    <p className="text-base-content text-sm max-w-2xl mx-auto">
                         Collaborate, learn, and grow together with fellow students in our vibrant online study groups.
                     </p>
                 </div>
