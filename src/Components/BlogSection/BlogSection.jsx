@@ -41,18 +41,18 @@ export default function BlogSection() {
                 {blogPosts.map(post => (
                     <div className="bg-primary rounded-xl shadow hover:shadow-lg transition overflow-hidden">
                         <img src={post.thumbnail} alt={post.title} className="w-full h-48 object-cover" />
-
-                        <div className="p-4 flex flex-col justify-between h-28">
-                            <h3 className="text-xl text-white font-bold mb-4">{post.title}</h3>
-
-                            {/* Row container: category left, date right */}
-                            <div className="flex justify-between text-black items-center mt-auto">
-                                <div className="flex items-center gap-2 font-semibold">
-                                    <MdTipsAndUpdates className="" /> {post.category}
+                        <div className="p-4">
+                            <div className="flex justify-between flex-col h-24">
+                                <h3 className="text-xl text-white font-bold mb-4">{post.title}</h3>
+                                <div className="flex justify-between text-black items-center">
+                                    <div className="flex items-center gap-2 font-semibold">
+                                        <MdTipsAndUpdates /> {post.category}
+                                    </div>
+                                    <div className="font-medium text-sm">{post.date}</div>
                                 </div>
-                                <div className="font-medium text-sm">{post.date}</div>
                             </div>
                         </div>
+
                     </div>
 
                 ))}
